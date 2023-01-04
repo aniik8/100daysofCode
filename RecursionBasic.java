@@ -16,6 +16,8 @@ public class RecursionBasic {
         System.out.println(sumOfdigit(199));
         // 7. largest element in an array
         System.out.println(largestArray(arr, 0, 0));
+        // 8. Prime number or not
+        System.out.println(primeOrnot(1923, 1923/2));
     }
 
     public static int fib(int n) {
@@ -76,6 +78,13 @@ public class RecursionBasic {
             return largestArray(arr, arr[n], n+1);
         }
         return largestArray(arr, max, n+1);
+    }
+    // 8. Prime or not
+    public static int primeOrnot(int n, int i){
+        if(i == 1){
+            return 0;
+        }else if(n % i != 0) return primeOrnot(n, i-1);
+        else return 1;
     }
 
 
