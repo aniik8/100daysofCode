@@ -7,6 +7,15 @@ public class RecursionBasic {
         printNN(50);
         // 3. Program to print  the sum of numbers from 1 to n using recursion
         System.out.println(SumOfN(50));
+        // 4. GCD of a number using recursion
+        System.out.println(gcd(27, 48));
+        // 5. element of an array
+        int[] arr = {12, 13, 15, -1, 19, 0, 2, -2};
+        printArray(arr,0);
+        // 6. sum of a digit of a number using recursion.
+        System.out.println(sumOfdigit(199));
+        // 7. largest element in an array
+        System.out.println(largestArray(arr, 0, 0));
     }
 
     public static int fib(int n) {
@@ -33,4 +42,41 @@ public class RecursionBasic {
         }else return n + SumOfN(n-1);
 
     }
+
+    // 4. GCD
+    public static int gcd(int n1, int n2){
+        while(n1 != n2){
+            if(n1 > n2){
+                return gcd(n1-n2, n2);
+            }
+            else return gcd(n1,n2-n1);
+        }
+        return n1;
+    }
+    // 5. element of an array
+    public static void printArray(int[] arr,int n){
+        if(n < arr.length){
+            System.out.print(arr[n] + "  ");
+            printArray(arr, n+1);
+        }
+    }
+    // 6. sum of a digit of a number using recursion.
+    public static int sumOfdigit(int n){
+        if(n < 10){
+            return n;
+        }
+        else return sumOfdigit(n%10) + sumOfdigit(n/10);
+    }
+
+    // 7. print largest element of an array using recursion.
+    public static int largestArray(int[] arr, int max, int n){
+        if(n == arr.length){
+            return max;
+        }else if(arr[n] > max){
+            return largestArray(arr, arr[n], n+1);
+        }
+        return largestArray(arr, max, n+1);
+    }
+
+
 }
