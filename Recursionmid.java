@@ -72,7 +72,18 @@ public class Recursionmid {
             pattern1(n - 1, 1);
         }
     }
-
+    public static void patternRev(int n,int start, int i){
+        if(i > n){
+            return;
+        }
+        else if(start <= i){
+            System.out.print(" * ");
+            patternRev(n, start+1, i);
+        }else {
+            System.out.println();
+            patternRev(n, 1, i + 1);
+        }
+    }
 
 
 
