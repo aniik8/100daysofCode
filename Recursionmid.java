@@ -9,6 +9,9 @@ public class Recursionmid {
 // 4. Binary search algorithm using recursion
         int[] arr = {-20, -2, 1, 6, 7, 9, 12, 15, 19, 21};
         System.out.println(BinarySearch(arr, 0, arr.length-1, 15));
+// 5.  pattern using recursion.
+        pattern1(5, 0);
+        patternRev(5, 0, 0);
 
     }
     public static int fib(int n) {
@@ -55,6 +58,21 @@ public class Recursionmid {
         }
         else return -1;
     }
+    // pattern
+    public static void pattern1(int n, int start){
+        if(n < 1)
+            return;
+        else if(start <=n)
+        {
+            System.out.print(" * ");
+            pattern1(n, start+1);
+        }
+        else {
+            System.out.println();
+            pattern1(n - 1, 1);
+        }
+    }
+
 
 
 
