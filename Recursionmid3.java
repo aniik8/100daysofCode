@@ -11,7 +11,9 @@ public class Recursionmid3 {
         System.out.println(Arrays.toString(selectionSort(arr2, 0, 1, arr2.length-1)));
         // 3. merge sort
         System.out.println(Arrays.toString(mergeSort(arr2)));
-        
+        // 4. quick sort
+        quicksort(arr2, 0, arr2.length-1);
+
     }
     public static int bubbleSort(int[] arr, int start, int last){
         if(last == 0){
@@ -78,6 +80,30 @@ public static int[] selectionSort(int[] arr, int max, int next, int end){
             j++;k++;
         }
         return arrcomb;
+    }
+    // quick sort
+    static void quicksort(int[] arr, int low, int high){
+        if(low >= high){
+            return;
+        }
+        int start = low;
+        int end = high;
+        int mid = start + (end - start)/2;
+        int pivot = arr[mid];
+        while(start <= end){
+            while(arr[start] < pivot) start++;
+            while(arr[end] > pivot) end--;
+
+            if(start <= end){
+                int temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+                start++; end--;
+            }
+        }
+        quicksort(arr, low, end);
+        quicksort(arr, start, high);
+
     }
 
 }
