@@ -9,6 +9,9 @@ public class Recursionmid3 {
         System.out.println((bubbleSort(arr2,0, arr2.length-1)));
         // 2. Selection sort
         System.out.println(Arrays.toString(selectionSort(arr2, 0, 1, arr2.length-1)));
+        // 3. merge sort
+        System.out.println(Arrays.toString(mergeSort(arr2)));
+        
     }
     public static int bubbleSort(int[] arr, int start, int last){
         if(last == 0){
@@ -42,5 +45,39 @@ public static int[] selectionSort(int[] arr, int max, int next, int end){
     }
     return selectionSort(arr, next, next+1, end);
 }
+    public static int[] mergeSort(int[] arr){
+        if(arr.length == 1){
+            return arr;
+        }
+        int mid = arr.length / 2;
+
+        int[] arr1 = mergeSort(Arrays.copyOfRange(arr, 0, mid));
+
+        int[] arr2 = mergeSort(Arrays.copyOfRange(arr, mid, arr.length));
+        return merge(arr1, arr2);
+    }
+    public static int[] merge(int [] arr1, int[] arr2){
+        int[] arrcomb = new int[arr1.length+arr2.length];
+        int i =0, j=0, k=0;
+        while(i < arr1.length && j < arr2.length){
+            if(arr1[i] < arr2[j]){
+                arrcomb[k] = arr1[i];
+                i++;
+            }else {
+                arrcomb[k] = arr2[i];
+                j++;
+            }
+            k++;
+        }
+        while(i < arr1.length){
+            arrcomb[k] = arr1[i];
+            i++; k++;
+        }
+        while (j < arr2.length){
+            arrcomb[k] = arr2[j];
+            j++;k++;
+        }
+        return arrcomb;
+    }
 
 }
