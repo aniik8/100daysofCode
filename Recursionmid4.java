@@ -10,6 +10,8 @@ public class Recursionmid4 {
         slow_addition(13, 21);
         // 5. Decimal to binary conversion using recursion
         System.out.println(decimal_binary(39));
+        // 6. Decimal to any base conversion using recursion
+        System.out.println(decimal_to_any(34, 5));
     }
 
     static String skipaChar(String sc, char ch, int len){
@@ -55,6 +57,9 @@ public class Recursionmid4 {
         if(n < 2) return 1;
         else return 10 * decimal_binary(n/2) + (n%2);
     }
-
+    static int decimal_to_any(int n, int base){
+        if(n < 2) return 1;
+        else return 10 * decimal_to_any(n/base, base) + (n%base);
+    }
 
 }
