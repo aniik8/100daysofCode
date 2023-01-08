@@ -6,6 +6,8 @@ public class Recursionmid4 {
         substring("abc", "");
         // 3. permutation of a string using recursion
         permutataionString("abc", "");
+        // 4. Addition of two using recursion
+        slow_addition(13, 21);
     }
 
     static String skipaChar(String sc, char ch, int len){
@@ -39,5 +41,13 @@ public class Recursionmid4 {
             permutataionString(sc.substring(1), first+sc.charAt(0)+second);
         }
     }
+    // 4. addition of two numbers using recursion
+    static int slow_addition(int a, int b){
+        if(a == 0) return b;
+        else if(b==0) return a;
+        else if(a < b) return slow_addition(a-1, b)+1;
+        else return slow_addition(a-1, b)+1;
+    }
+
 
 }
