@@ -70,5 +70,31 @@ public class Recursionmid4 {
 
         return hoare_partitioning(arr2, 1, end, 0);
     }
+    static int[] hoare_partitioning(int[] arr2, int left, int right, int pivot){
+        if(left > right){
+            // swap the pivot element with the original first element.
+            int mid = arr2.length/2;
+            int temp = arr2[mid];
+            arr2[mid] = arr2[0];
+            arr2[0] = temp;
+            return arr2;
+        }
+        else if(arr2[left] >= arr2[pivot] && arr2[right] < arr2[pivot]){
+            // swap left and right elements
+            int temp = arr2[left];
+            arr2[left] = arr2[right];
+            arr2[right] = temp;
+            return hoare_partitioning(arr2, left+1, right-1, pivot);
 
+        }
+        else {
+            if (arr2[left] < arr2[pivot]) {
+                left++;
+            }
+            if (arr2[right] > arr2[pivot]) {
+                right--;
+            }
+            return hoare_partitioning(arr2, left, right, pivot);
+        }
+    }
 }
