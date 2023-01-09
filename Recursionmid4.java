@@ -61,5 +61,14 @@ public class Recursionmid4 {
         if(n < 2) return 1;
         else return 10 * decimal_to_any(n/base, base) + (n%base);
     }
+// Hoare's algorithm for partitioning an array
+    static int[] hoare_swap(int[] arr2, int start, int end){
+        int mid = start + (end - start) /2;
+        int temp = arr2[mid];
+        arr2[mid] = arr2[0];
+        arr2[0] = temp;
+
+        return hoare_partitioning(arr2, 1, end, 0);
+    }
 
 }
