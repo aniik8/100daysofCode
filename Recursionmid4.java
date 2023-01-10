@@ -97,4 +97,17 @@ public class Recursionmid4 {
             return hoare_partitioning(arr2, left, right, pivot);
         }
     }
+    static double f(double x){
+        return (x*x-9);
+    }
+    static double bisection_method(double a, double b, double epsilon){
+        double z = (a+b)/2;
+        if((f(z) == 0) || (b-a) <= 2* epsilon){
+            return z;
+        }else if((f(a) > 0 && f(z) < 0) || (f(a) <0 && f(z) > 0)){
+            return bisection_method(a, z, epsilon);
+        }else{
+            return bisection_method(z, b, epsilon);
+        }
+    }
 }
