@@ -12,6 +12,8 @@ public class Recursionmid4 {
         System.out.println(decimal_binary(39));
         // 6. Decimal to any base conversion using recursion
         System.out.println(decimal_to_any(34, 5));
+        // 7. GCD using Euclid's division
+        System.out.print(euclid_gcd(132, 144));
     }
 
     static String skipaChar(String sc, char ch, int len){
@@ -109,5 +111,12 @@ public class Recursionmid4 {
         }else{
             return bisection_method(z, b, epsilon);
         }
+    }
+
+    // GCD using euclid's division
+    public static int euclid_gcd(int n1, int n2){
+        if(n1 == 0) return n2;
+        else if(n1 > n2) return euclid_gcd(n2, n1);
+        else return euclid_gcd(n1, n2-n1);
     }
 }
