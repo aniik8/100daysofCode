@@ -1,6 +1,10 @@
+import java.util.Arrays;
+
 public class Recursionmid4 {
     public static void main(String[] args) {
+        int[] arr = {1, 2 ,3, 4, 5, 6};
         //1. skipping a character from a string
+
         System.out.println(skipaChar("baccad", 'a', 0));
         //2. writing different substring of a given string
         substring("abc", "");
@@ -14,6 +18,8 @@ public class Recursionmid4 {
         System.out.println(decimal_to_any(34, 5));
         // 7. GCD using Euclid's division
         System.out.print(euclid_gcd(132, 144));
+        // 8. Check whether an array is ascending or not
+        System.out.println(asc_or_not(arr, 0, arr.length-1));
     }
 
     static String skipaChar(String sc, char ch, int len){
@@ -118,5 +124,10 @@ public class Recursionmid4 {
         if(n1 == 0) return n2;
         else if(n1 > n2) return euclid_gcd(n2, n1);
         else return euclid_gcd(n1, n2-n1);
+    }
+    // check whether an array is ascending or not using recursion
+    static boolean asc_or_not(int[] arr, int start, int end){
+        if(arr.length <=1) return true;
+        else return asc_or_not(Arrays.copyOfRange(arr, 0, arr.length/2-1), 0, arr.length/2 -1) && (arr[end/2-1] <= arr[end/2]) && asc_or_not(Arrays.copyOfRange(arr, end/2-1, arr.length/2), end/2, end-1);
     }
 }
