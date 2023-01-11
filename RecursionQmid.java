@@ -6,10 +6,13 @@ public class RecursionQmid {
         int[] arr = {12,18,23,45,68,98,122};
         int[] arr2 = {2, 1, 1, 1, 1,0, 1, 2, 3,4,5,6};
 
-        // Counting a particular element of an array.
+        // 2. Counting a particular element of an array.
         asc_or_not(arr, 0, arr.length-1);
         System.out.println(count_the_occurance(arr2, 1));
-        // counting majority element
+
+        // 3. counting majority element using boyer moore voting algo.
+        System.out.println(majority_element(arr2, arr2.length, 0, 0, 0));
+        //
     }
 
     static boolean asc_or_not(int[] arr, int start, int end){
