@@ -20,5 +20,20 @@ public class RecursionQmid {
         if(x.length == 0) return 0;
         else return ((x[0] == n) ? 1 : 0) + count_the_occurance(Arrays.copyOfRange(x, 1, x.length), n);
     }
+    static int majority_element(int[] x, int n, int i, int count, int majority){
 
+        if(n == 0){
+            return majority;
+        }
+        else{
+            if(count == 0) majority = x[i];
+            if(x[i] == majority) {
+                count++;
+            }else{
+                count--;
+            }
+            return (majority_element(x, n - 1, i + 1, count, majority));
+
+        }
+    }
 }
