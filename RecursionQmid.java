@@ -9,6 +9,7 @@ public class RecursionQmid {
         // Counting a particular element of an array.
         asc_or_not(arr, 0, arr.length-1);
         System.out.println(count_the_occurance(arr2, 1));
+        // counting majority element
     }
 
     static boolean asc_or_not(int[] arr, int start, int end){
