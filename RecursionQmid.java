@@ -40,4 +40,10 @@ public class RecursionQmid {
 
         }
     }
+    public static void printArray(int[] arr,int n){
+        if(n < arr.length){
+            System.out.print(arr[n] + "  ");
+            printArray(arr, n+1);
+        }
+    }
 }
