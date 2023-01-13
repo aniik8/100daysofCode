@@ -139,4 +139,15 @@ public class Recursionmid4 {
             return is_palindrome(str, i+1, j-1);
         }else return false;
     }
+    // largest substring of a string
+    static String largest_substring(String str, int i , int j){
+        if (is_palindrome(str, i, j)) return str;
+        else{
+            String s1 = largest_substring(str.substring(0, str.length()-2), 0, str.length()-2);
+            String s2 = largest_substring(str.substring(1, str.length()-1), 1, str.length()-1);
+            if(s1.length() > s2.length()) return s1;
+            else return s2;
+        }
+
+    }
 }
