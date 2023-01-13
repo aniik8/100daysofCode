@@ -119,7 +119,7 @@ public class Recursionmid4 {
         }
     }
 
-    // GCD using euclid's division
+
     public static int euclid_gcd(int n1, int n2){
         if(n1 == 0) return n2;
         else if(n1 > n2) return euclid_gcd(n2, n1);
