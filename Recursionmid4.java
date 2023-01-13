@@ -130,4 +130,13 @@ public class Recursionmid4 {
         if(arr.length <=1) return true;
         else return asc_or_not(Arrays.copyOfRange(arr, 0, arr.length/2-1), 0, arr.length/2 -1) && (arr[end/2-1] <= arr[end/2]) && asc_or_not(Arrays.copyOfRange(arr, end/2-1, arr.length/2), end/2, end-1);
     }
+    // checking if a string is palindrome or not...
+    static boolean is_palindrome(String str, int i, int j){
+        if(i > j){
+            return true;
+        }
+        else if(str.charAt(i) == str.charAt(j)){
+            return is_palindrome(str, i+1, j-1);
+        }else return false;
+    }
 }
