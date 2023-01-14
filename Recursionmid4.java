@@ -141,13 +141,13 @@ public class Recursionmid4 {
     }
     // largest substring of a string
     static String largest_substring(String str, int i , int j){
-        if (is_palindrome(str, i, j)) return str;
+        if (is_palindrome(str, i, j-2)) return str;
         else{
-            String s1 = largest_substring(str.substring(0, str.length()-2), 0, str.length()-2);
-            String s2 = largest_substring(str.substring(1, str.length()-1), 1, str.length()-1);
+            String s1 = largest_substring(str.substring(i, str.length()-1), 1, str.length()-1);
+            String s2 =  largest_substring(str.substring(i, str.length()-2), 0, str.length()-2);
             if(s1.length() > s2.length()) return s1;
             else return s2;
         }
-
+// forgeeksskeegfor
     }
 }
