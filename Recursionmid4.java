@@ -131,23 +131,23 @@ public class Recursionmid4 {
         else return asc_or_not(Arrays.copyOfRange(arr, 0, arr.length/2-1), 0, arr.length/2 -1) && (arr[end/2-1] <= arr[end/2]) && asc_or_not(Arrays.copyOfRange(arr, end/2-1, arr.length/2), end/2, end-1);
     }
     // checking if a string is palindrome or not...
-    static boolean is_palindrome(String str, int i, int j){
-        if(i > j){
+    static boolean is_palindrome(String str){
+        if(str.length() <= 1){
             return true;
         }
-        else if(str.charAt(i) == str.charAt(j)){
-            return is_palindrome(str, i+1, j-1);
-        }else return false;
+        else if(str.charAt(0) == str.charAt(str.length()-1)){
+            return is_palindrome(str.substring(1, str.length()-1));
+        }
+        else return false;
     }
     // largest substring of a string
-    static String largest_substring(String str, int i , int j){
-        if (is_palindrome(str, i, j-2)) return str;
+    static String longestPalindrome(String str){
+        if(is_palindrome(str)) return str;
         else{
-            String s1 = largest_substring(str.substring(i, str.length()-1), 1, str.length()-1);
-            String s2 =  largest_substring(str.substring(i, str.length()-2), 0, str.length()-2);
-            if(s1.length() > s2.length()) return s1;
-            else return s2;
+            String str1 = longestPalindrome(str.substring(0, str.length()-1));
+            String str2 = longestPalindrome(str.substring(1, str.length()));
+            if(str1.length() > str2.length()) return str1;
+            else return str2;
         }
-
     }
 }
