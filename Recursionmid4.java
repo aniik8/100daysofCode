@@ -150,4 +150,16 @@ public class Recursionmid4 {
             else return str2;
         }
     }
+    static void PermutationString(String sc, String output){
+
+        if(sc.length() == 0){
+            System.out.println(output);
+            return;
+        }
+
+        for(int j=0;j<sc.length();j++){
+            String str = sc.substring(0,j) + sc.substring(j+1,sc.length());
+            PermutationString(str , output + sc.charAt(j));
+        }
+    }
 }
