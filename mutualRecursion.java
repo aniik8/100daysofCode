@@ -1,7 +1,7 @@
 public class mutualRecursion {
     public static void main(String[] args) {
         System.out.println(isEven(8));
-        
+
         // rabbit problem using mutual recursion
         System.out.print(baby_rabbit(4));
     }
