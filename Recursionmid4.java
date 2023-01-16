@@ -150,6 +150,8 @@ public class Recursionmid4 {
             else return str2;
         }
     }
+
+    // works only for small strings. for larger string, prefer dynamic programming....
     static void PermutationString(String sc, String output){
 
         if(sc.length() == 0){
