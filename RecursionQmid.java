@@ -13,6 +13,8 @@ public class RecursionQmid {
         // 3. counting majority element using boyer moore voting algo.
         System.out.println(majority_element(arr2, arr2.length, 0, 0, 0));
         //
+        tower_of_hanoi(4, '0', 'D', 'A');
+
     }
 
     static boolean asc_or_not(int[] arr, int start, int end){
@@ -46,7 +48,7 @@ public class RecursionQmid {
             printArray(arr, n+1);
         }
     }
-// tower of hanoi..
+// tower of hanoi
     static void tower_of_hanoi(int n, char o, char d, char a){
         if(n == 1) System.out.println(n + " from " + o + " to  " + d);
         else{
