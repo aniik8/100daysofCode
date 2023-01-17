@@ -12,7 +12,7 @@ public class RecursionQmid {
 
         // 3. counting majority element using boyer moore voting algo.
         System.out.println(majority_element(arr2, arr2.length, 0, 0, 0));
-        //
+        
         tower_of_hanoi(4, '0', 'D', 'A');
 
     }
