@@ -46,4 +46,13 @@ public class RecursionQmid {
             printArray(arr, n+1);
         }
     }
+// tower of hanoi..
+    static void tower_of_hanoi(int n, char o, char d, char a){
+        if(n == 1) System.out.println(n + " from " + o + " to  " + d);
+        else{
+            tower_of_hanoi(n-1, o, a, d);
+            System.out.println(n + " from " + o + " to  " + d);
+            tower_of_hanoi(n-1, a, d, o);
+        }
+    }
 }
