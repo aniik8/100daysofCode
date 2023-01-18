@@ -66,7 +66,7 @@ public class RecursionQmid {
         }
     }
     //
-    // Function to remove adjacent duplicates characters from a string
+    // Function to remove adjacent duplicates characters from a stri
         public static String removeDuplicates(String s)
         {
             // base case
