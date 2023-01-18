@@ -57,4 +57,12 @@ public class RecursionQmid {
             tower_of_hanoi(n-1, a, d, o);
         }
     }
+    static void tower_of_hanoi_leetcode(int n){
+        if(n == 1) System.out.println(n);
+        else{
+            tower_of_hanoi_leetcode(n-1);
+            System.out.println(n);
+            tower_of_hanoi_leetcode(n-1);
+        }
+    }
 }
