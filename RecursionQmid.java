@@ -99,6 +99,13 @@ public class RecursionQmid {
 
         print_array_subsequence(Arrays.copyOfRange(arr), );
     }
+// count number of paths in a maze.
+static int count_maze(int row, int column){
+    if(row == 1 || column == 1) return 1;
+    else{
+        return count_maze(row-1, column) + count_maze(row, column-1);
+    }
+}
 
 
     }
