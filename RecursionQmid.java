@@ -106,7 +106,15 @@ static int count_maze(int row, int column){
         return count_maze(row-1, column) + count_maze(row, column-1);
     }
 }
-
-
+    static void maze_path(String p, int row, int column){
+        if(row == 1 && column == 1){
+            System.out.println(p);
+            return;
+        }
+        if(row > 1){
+            maze_path(p + 'D', row-1, column);
+        }if(column > 1){
+            maze_path(p + 'R', row, column-1);
+        }
     }
 }
