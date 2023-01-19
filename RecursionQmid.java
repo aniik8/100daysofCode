@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RecursionQmid {
@@ -89,6 +90,15 @@ public class RecursionQmid {
 
             return new String(chars).substring(0, k);
         }
+    static void print_array_subsequence(int[] arr, ArrayList<Integer> up){
+        if(arr.length == 0){
+            System.out.println(Arrays.toString(arr));
+            return;
+        }
+        int ele = arr[0];
+
+        print_array_subsequence(Arrays.copyOfRange(arr), );
+    }
 
 
     }
