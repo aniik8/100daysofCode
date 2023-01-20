@@ -2,7 +2,13 @@ package backtracking;
 
 public class MazeQ {
     // count number of paths in a maze.
-    
+    public static void main(String[] args){
+        // maze with obstacles
+        boolean[][] board = {{true, true, true},
+                {true, false, true},
+                {true, true, true}};
+        pathObstacles("", 0, 0, board);
+    }
     static int count_maze(int row, int column){
         if(row == 1 || column == 1) return 1;
         else{
