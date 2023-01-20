@@ -2,6 +2,7 @@ package backtracking;
 
 public class MazeQ {
     // count number of paths in a maze.
+    
     static int count_maze(int row, int column){
         if(row == 1 || column == 1) return 1;
         else{
@@ -34,5 +35,16 @@ public class MazeQ {
         }if(column > 1){
             maze_path(p + 'V', row, column-1);
         }
+    }
+    // maze problem with obstacles
+    static void pathObstacles(String p, int row, int column, boolean[][] maze){
+        if((row == maze.length - 1) && (column == maze[0].length-1) ){
+            System.out.println(p);
+            return;
+        }
+        if(!maze[row][column]) return;
+        if(row < maze.length-1) pathObstacles( p + 'R', row+1, column, maze);
+        if(column < maze[0].length-1) pathObstacles( p + 'D', row, column+1, maze);
+
     }
 }
