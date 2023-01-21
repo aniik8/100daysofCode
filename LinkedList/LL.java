@@ -31,7 +31,7 @@ public class LL{
         }
         System.out.println("END OF LL");
     }
-
+// this is used to delete the node. 
     public void DeleteNode(){
         head = head.next;
 
