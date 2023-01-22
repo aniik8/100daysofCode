@@ -40,7 +40,25 @@ public class LL{
     //this will actually insert an element in O(1) constant time. If we don't use tail var, then traversing till end as
     // as same in display method till temp is null and then inserting at that location
     // interviewer may ask why this taking an extra variable can help us, answer is time complexity.
-
+    public void insertMid(int data, int index){
+        if(index == 0){
+            insertionNode(data);
+        }
+        else if(index == size){
+            insertEnd(data);
+        }
+        else{
+            // will traverse through the entire list until our index
+            Node temp = head;           // providing header to temp var
+            for(int i=1;i < index; i++){            // traverse till the desired location
+                temp = temp.next;
+            }
+            //
+            Node newEle = new Node(data, temp.next);        // create a Node with data and it's next location
+            temp.next = newEle;                             // referenc
+            size++;
+        }
+    }
     public void insertEnd(int data){
         if(tail == null){
             insertionNode(data);
