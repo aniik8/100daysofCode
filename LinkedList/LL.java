@@ -36,6 +36,18 @@ public class LL{
         head = head.next;
 
     }
+    public void Deletemid(int index){
+        if(index == 0) DeleteNode();
+        else {
+            Node temp = head;
+            for (int i = 1; i < index; i++) {
+                temp = temp.next;
+            }
+//
+            temp.next = temp.next.next;
+            size--;
+        }
+    }
     // insert at the end
     //this will actually insert an element in O(1) constant time. If we don't use tail var, then traversing till end as
     // as same in display method till temp is null and then inserting at that location
