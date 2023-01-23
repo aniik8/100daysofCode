@@ -17,7 +17,9 @@ public class Doubly_LL {
         while(temp2 != null){
             System.out.print(temp2.data + " -> ");
             temp2 = temp2.prev;
-        }System.out.println( "END OF DLL" );
+        }
+        System.out.println( "END OF DLL" );
+
     }
     // inserting an element in starting
     public void insertAtFirst(int data)
@@ -68,6 +70,13 @@ public class Doubly_LL {
     public void deleteFirst(){
         head = head.next;
         head.prev = null;
+    }
+    public void deleteLast(){
+        Node temp = head;
+        while(temp.next != null){
+            temp = temp.next;
+        }
+        temp.prev.next = null;
     }
 
     Node head;
