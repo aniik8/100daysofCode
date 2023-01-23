@@ -65,7 +65,10 @@ public class Doubly_LL {
 
         }
     }
-
+    public void deleteFirst(){
+        head = head.next;
+        head.prev = null;
+    }
 
     Node head;
     int size=0;
