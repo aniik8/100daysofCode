@@ -50,6 +50,8 @@ public class Doubly_LL {
         size++;
     }
     // insert middle element
+    // will make a function that'll return a value/node at desired index and then we'll search and insert that.
+
     public void insertMiddleEle(int data, int index){
         if(index == 0) insertAtFirst(data);
         else if(index == size) insertAtEnd(data);
