@@ -71,6 +71,7 @@ public class LL{
             size++;
         }
     }
+
     public void insertEnd(int data){
         if(tail == null){
             insertionNode(data);

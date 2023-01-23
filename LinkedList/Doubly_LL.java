@@ -12,14 +12,14 @@ public class Doubly_LL {
             temp = temp.next;
             if(temp != null) temp2 = temp;
         }
-        System.out.println( "END OF DLL" );
+        System.out.println( " END OF DLL " );
 
         while(temp2 != null){
-            System.out.print(temp2.data + "->");
+            System.out.print(temp2.data + " -> ");
             temp2 = temp2.prev;
         }System.out.println( "END OF DLL" );
     }
-// inserting an element in starting
+    // inserting an element in starting
     public void insertAtFirst(int data)
     {
         Node newElement = new Node(data);
@@ -29,26 +29,46 @@ public class Doubly_LL {
             head.prev = newElement;
         }
         head = newElement;
-
+        size++;
     }
-// inserting at the End
+    // inserting at the End
     public void insertAtEnd(int data){
         if(head == null) insertAtFirst(data);
         else {
             Node newElement = new Node(data);
             Node temp = head;
             while(temp != null){
-                temp = temp.next;
+                if(temp.next == null) break;
+                else temp = temp.next;
             }
+            temp.next = newElement;
+            newElement.prev = temp;
+            newElement.next = null;
+        }
+        size++;
+    }
+    // insert middle element
+    public void insertMiddleEle(int data, int index){
+        if(index == 0) insertAtFirst(data);
+        else if(index == size) insertAtEnd(data);
+        else{int count=0;
 
+            Node newElement = new Node(data);
+            Node temp = head;
+            while((count)!=index){
+                temp = temp.next;
+                count++;
+            }
+            newElement.next = temp.next.next;
+            temp.next = newElement;
+            newElement.prev = temp;
 
         }
-
     }
 
 
     Node head;
-
+    int size=0;
 
 
     class Node{
