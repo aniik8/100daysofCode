@@ -78,6 +78,10 @@ public class Doubly_LL {
         }
         temp.prev.next = null;
     }
+    // will make a function that'll return a value/node at desired index and then we'll search or delete that..
+    public void deleteMid(int index){
+
+    }
 
     Node head;
     int size=0;
