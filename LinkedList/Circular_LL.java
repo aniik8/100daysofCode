@@ -58,7 +58,13 @@ public class Circular_LL {
     }
     public void deleteFirst(){
         head = head.next;
+        tail.next = head;
+    }
+    public void deleteLast()
+    {
 
+        tail = tail.prev;
+        tail.prev.next = head;
     }
 
     class Node{
