@@ -60,6 +60,17 @@ public class Circular_LL {
         head = head.next;
         tail.next = head;
     }
+
+    public void deleteMiddle(int index){
+        if(index == 0) {
+            deleteFirst();
+            return;
+        }
+        if(index == size-1){
+            deleteLast();
+            return;
+        }
+    }
     public void deleteLast()
     {
 
