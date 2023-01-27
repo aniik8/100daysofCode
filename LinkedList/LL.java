@@ -103,6 +103,17 @@ public class LL{
 
         return head;
     }
+    static void traverse(Node head)
+    {
+        if (head == null)
+            return;
+
+        // If head is not null, print current node
+        // and recur for remaining list
+        System.out.print( head.data + " ");
+
+        traverse(head.next);
+    }
 
 // This code is contributed by rutvik_56
 
