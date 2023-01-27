@@ -115,6 +115,29 @@ public class LL{
         traverse(head.next);
     }
 
+    // delete kth node in a linkedlist
+    static Node deleteNode(Node start, int k)
+    {
+        // If invalid k
+        if (k < 1)
+            return start;
+
+        // If linked list is empty
+        if (start == null)
+            return null;
+
+        // Base case (start needs to be deleted)
+        if (k == 1)
+        {
+            Node res = start.next;
+            return res;
+        }
+
+        start.next = deleteNode(start.next, k-1);
+        return start;
+    }
+
+
 // This code is contributed by rutvik_56
 
     class Node{
