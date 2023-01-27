@@ -136,7 +136,17 @@ public class LL{
         start.next = deleteNode(start.next, k-1);
         return start;
     }
-
+    public void removeDuplicate(){
+        Node newNode = head;
+        while(newNode.next != null){
+            if(newNode.data == newNode.next.data){
+                newNode.next = newNode.next.next;
+            }else{
+                newNode = newNode.next;
+                size--;
+            }
+        }
+    }
 
 // This code is contributed by rutvik_56
 
