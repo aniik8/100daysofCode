@@ -84,6 +84,28 @@ public class LL{
         }
 
     }
+    // insert a node recursively in linkedlist
+    // Function to insert a new node at the
+// end of linked list using recursion.
+    static Node insertEndRecursion(Node head, int data)
+    {
+
+        // If linked list is empty, create a
+        // new node (Assuming newNode() allocates
+        // a new node with given data)
+        if (head == null)
+            return Node(data);
+
+            // If we have not reached end, keep traversing
+            // recursively.
+        else
+            head.next = insertEndRecursion(head.next, data);
+
+        return head;
+    }
+
+// This code is contributed by rutvik_56
+
     class Node{
         int data;
         Node next;
@@ -96,4 +118,5 @@ public class LL{
             this.next = next;
         }
     }
+
 }
