@@ -24,6 +24,18 @@ public class LL_Questions {
         }
         head = previous;
     }
-    
+    // Leetcode - 83. remove duplicate elements in the linked list
+
+    public void removeDuplicate(){
+        LinkedList.LL.Node newNode = head;
+        while(newNode.next != null){
+            if(newNode.data == newNode.next.data){
+                newNode.next = newNode.next.next;
+            }else{
+                newNode = newNode.next;
+                size--;
+            }
+        }
+    }
 
 }
