@@ -71,5 +71,20 @@ public class LL_Questions {
         }
         return false;
     }
+// leetcode 863. middle of a linkedlist
+public int middleofLL(LinkedList.LL list1){
+    LinkedList.LL.Node temp = head;
+    int size = 0;
+    int n = 0;
+    while(temp != null){
+        size++;
+        temp = temp.next;
+    }
 
+    while(n != ((size/2))){
+        n++;
+        head = head.next;
+    }
+    return head.data;
+}
 }
