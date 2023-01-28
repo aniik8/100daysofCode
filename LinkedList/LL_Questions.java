@@ -37,6 +37,7 @@ public class LL_Questions {
             }
         }
     }
+    // leetcode 21
     public LinkedList.LL.Node mergeTwoLists(LinkedList.LL.Node list1, LinkedList.LL.Node list2) {
         LinkedList.LL.Node newlist = new LinkedList.LL.Node();
         LinkedList.LL.Node head = newlist;
@@ -55,6 +56,20 @@ public class LL_Questions {
             head.next = (list1 != null) ? list1 : (list2 != null ? list2 : null);
         }
         return newlist.next;
+    }
+
+// leetcode 141  - cycle present in a linkedlist or not
+    public boolean hasCycle(LinkedList.LL.Node head) {
+        LinkedList.LL.Node fast = head;
+        LinkedList.LL.Node slow = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
