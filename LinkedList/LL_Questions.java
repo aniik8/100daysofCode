@@ -92,19 +92,20 @@ public int middleofLL(LinkedList.LL list1){
         int size=0, n=0;
         LinkedList.LL.Node temp = list1.head;
         LinkedList.LL.Node head2 = list1.head;
+        // size of LL
         while(temp != null)
-        {
-
-            size++;
+        {   size++;
             temp = temp.next;
         }
+        // pointer to the middle element so that the second half can be reversed
         while(n != (size/2))
         {
             n++;
             head2 = head2.next;
 
         }
-        // reversing a second half linkedlist
+
+        // reversing a second half LL
         LinkedList.LL.Node prev = null;
         LinkedList.LL.Node current = head2;
         LinkedList.LL.Node next = current.next;
@@ -118,6 +119,7 @@ public int middleofLL(LinkedList.LL list1){
             }
         }
         head2 = prev;
+
         LinkedList.LL.Node temp3 = list1.head;
         while(head2 != null){
             if(temp3.data != head2.data){
