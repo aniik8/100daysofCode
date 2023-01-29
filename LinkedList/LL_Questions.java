@@ -104,5 +104,19 @@ public int middleofLL(LinkedList.LL list1){
             head2 = head2.next;
 
         }
+        // reversing a second half linkedlist
+        LinkedList.LL.Node prev = null;
+        LinkedList.LL.Node current = head2;
+        LinkedList.LL.Node next = current.next;
+        while(current != null)
+        {
+            current.next = prev;
+            prev = current;
+            current = next;
+            if(next != null) {
+                next = next.next;
+            }
+        }
+        head2 = prev;
     }
 }
