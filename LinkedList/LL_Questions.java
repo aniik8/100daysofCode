@@ -87,4 +87,22 @@ public int middleofLL(LinkedList.LL list1){
     }
     return head.data;
 }
+    //234. palindrome linkedlist
+    public boolean isPalindrome(LinkedList.LL list1){
+        int size=0, n=0;
+        LinkedList.LL.Node temp = list1.head;
+        LinkedList.LL.Node head2 = list1.head;
+        while(temp != null)
+        {
+
+            size++;
+            temp = temp.next;
+        }
+        while(n != (size/2))
+        {
+            n++;
+            head2 = head2.next;
+
+        }
+    }
 }
