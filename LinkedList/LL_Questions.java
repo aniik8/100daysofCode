@@ -164,7 +164,20 @@ public int middleofLL(LinkedList.LL list1){
             }
         }
         head2 = prev;
-        
+        LinkedList.LL.Node headSecond = head2;
+        LinkedList.LL.Node headFirst = head;
+        while(headFirst != null && headSecond != null){
+            LinkedList.LL.Node temp2 = headFirst.next;
+            headFirst.next = headSecond;
+            headFirst = temp2;
+
+            temp2 = headSecond.next;
+            headSecond.next = headFirst;
+            headSecond = temp2;
+        }
+        if(headFirst != null){
+            headFirst.next = null;
+        }
     }
 
 }
