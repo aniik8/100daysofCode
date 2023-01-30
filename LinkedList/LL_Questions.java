@@ -179,5 +179,44 @@ public int middleofLL(LinkedList.LL list1){
             headFirst.next = null;
         }
     }
+    // Question no. 61 leetcode
+    public void rotateRight(LinkedList.LL L1, int k) {
+        LinkedList.LL.Node temp = head;
+        LinkedList.LL.Node nullTobe = head;
+        LinkedList.LL.Node end = head;
+        int  n = 0;
+        while(temp != null){
+            size++;
+            if(temp.next == null){
+                end = temp;
+            }
+            temp = temp.next;
+        }
+
+        end.next = head;
+        while(n <= k){
+            head = head.next;
+            n++;
+            if(n+1 == k)
+            {nullTobe = head;
+            }
+        }
+        nullTobe.next = null;
+
+    }
+    class Node{
+        int data;
+        LinkedList.LL.Node next;
+        public Node(){};
+        public Node(int data) {
+            this.data = data;
+        }
+        public Node(int data, LinkedList.LL.Node next){
+            this.data = data;
+            this.next = next;
+        }
+    }
+
+
 
 }
