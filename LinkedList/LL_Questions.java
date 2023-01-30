@@ -131,4 +131,21 @@ public int middleofLL(LinkedList.LL list1){
         }
         return true;
     }
+    // LeetCode 143.
+    public void reorderList(){
+        // reversing second half of the list
+        // calculate the size of the list;
+
+        LinkedList.LL.Node temp = head;
+        LinkedList.LL.Node head2 = head;
+        int size = 0, n = 0;
+        while(temp != null){
+            size++;
+            temp = temp.next;
+        }
+        // pointing second head at the middle of the list.
+
+        
+    }
+
 }
