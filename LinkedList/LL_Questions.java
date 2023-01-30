@@ -192,6 +192,10 @@ public int middleofLL(LinkedList.LL list1){
             }
             temp = temp.next;
         }
+        if(size == k)
+        {
+            // return same head because it'll be the same list as before
+        }
 
         end.next = head;
         while(n <= k){
