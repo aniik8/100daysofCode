@@ -201,9 +201,7 @@ public int middleofLL(LinkedList.LL list1){
         nullTobe.next = null;
 
     }
-
     //leetcode 203
-
     public void removeElements(LinkedList.LL list1 , int val)
     {
         LinkedList.LL.Node temp = head;
