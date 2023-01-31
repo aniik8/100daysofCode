@@ -183,29 +183,24 @@ public int middleofLL(LinkedList.LL list1){
     public void rotateRight(LinkedList.LL L1, int k) {
         LinkedList.LL.Node temp = head;
         LinkedList.LL.Node nullTobe = head;
-        LinkedList.LL.Node end = head;
         int  n = 0;
-        while(temp != null){
+        int size=1;
+        while(temp.next != null){
             size++;
-            if(temp.next == null){
-                end = temp;
-            }
             temp = temp.next;
         }
-        if(size == k)
-        {
-            // return same head because it'll be the same list as before
-        }
 
-        end.next = head;
-        while(n <= k){
-            head = head.next;
+        temp.next = head;
+        int rotations = k % size;
+        int skip_node = size - rotations;
+        while(n != skip_node-1) {
+            nullTobe = nullTobe.next;
             n++;
-            if(n+1 == k)
-            {nullTobe = head;
-            }
         }
+        head = nullTobe.next;
         nullTobe.next = null;
+
+    }
 
     }
     class Node{
