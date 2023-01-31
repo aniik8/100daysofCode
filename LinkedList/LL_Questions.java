@@ -214,7 +214,15 @@ public int middleofLL(LinkedList.LL list1){
                 head = null;
             }
         }
-        
+        while(temp.next != null){
+            if(temp.next.data == val)
+            {
+                temp.next = temp.next.next;
+            }else{
+                temp = temp.next;
+            }
+
+        }
     }
 
     }
