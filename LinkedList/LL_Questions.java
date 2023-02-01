@@ -265,7 +265,20 @@ public int middleofLL(LinkedList.LL list1){
         int[] arr = new int[size];
         while(head != null){
             // 1,7,5,1,9,2,5,1
-            
+            while(temp2 != null)
+            {
+                if(temp2.next != null && head.data < temp2.next.data){
+                    arr[n] = temp2.next.data;
+                    n++;
+                    break;
+                }
+                else if(temp2.next == null){
+                    arr[n] =  0;
+                    n++;
+                }
+
+                temp2 = temp2.next;
+            }
             head = head.next;
             temp2 = head;
         }
