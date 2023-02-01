@@ -251,6 +251,26 @@ public int middleofLL(LinkedList.LL list1){
         }
         return arr;
     }
+    // leetcode 1019.
+    public int[] nextLargerNodes(LinkedList.LL l1){
+        int n=0;
+        int size = 0;
+        LinkedList.LL.Node temp = head;
+        LinkedList.LL.Node temp2 = head;
+
+        while(temp != null){
+            size++;
+            temp = temp.next;
+        }
+        int[] arr = new int[size];
+        while(head != null){
+            // 1,7,5,1,9,2,5,1
+            
+            head = head.next;
+            temp2 = head;
+        }
+        return arr;
+    }
     }
     class Node{
         int data;
