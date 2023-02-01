@@ -254,7 +254,7 @@ public int middleofLL(LinkedList.LL list1){
     // leetcode 1019.
     public int[] nextLargerNodes(LinkedList.LL l1){
         int n=0;
-        int size = 0;
+        int size = 0;boolean flag = false;
         LinkedList.LL.Node temp = head;
         LinkedList.LL.Node temp2 = head;
 
@@ -265,12 +265,13 @@ public int middleofLL(LinkedList.LL list1){
         int[] arr = new int[size];
         while(head != null){
             // 1,7,5,1,9,2,5,1
+            flag = false;
             while(temp2 != null)
             {
                 if(temp2.next != null && head.data < temp2.next.data){
                     arr[n] = temp2.next.data;
                     n++;
-                    break;
+                    flag = true;
                 }
                 else if(temp2.next == null){
                     arr[n] =  0;
@@ -281,6 +282,7 @@ public int middleofLL(LinkedList.LL list1){
             }
             head = head.next;
             temp2 = head;
+            if(flag) break;
         }
         return arr;
     }
