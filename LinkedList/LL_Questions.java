@@ -222,7 +222,35 @@ public int middleofLL(LinkedList.LL list1){
 
         }
     }
+    // program to return an array of larger element of each node in a linkedlist.
+    public int[] LargerNodes(LinkedList.LL l1){
+        int max, n=0;
+        int size = 0;
+        LinkedList.LL.Node temp = head;
+        LinkedList.LL.Node temp2 = head;
 
+        while(temp != null){
+            size++;
+            temp = temp.next;
+        }
+        int[] arr = new int[size];
+        while(head != null){
+            max = 0;
+            while(temp2 != null){
+                if(max < temp2.data){
+                    max = temp2.data;
+                }
+                if(temp2.next == null){
+                    arr[n] = (max == head.data ?  0 : max);
+                    n++;
+                }
+                temp2 = temp2.next;
+            }
+            head = head.next;
+            temp2 = head;
+        }
+        return arr;
+    }
     }
     class Node{
         int data;
