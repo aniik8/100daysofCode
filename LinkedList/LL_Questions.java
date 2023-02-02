@@ -287,21 +287,20 @@ public int middleofLL(LinkedList.LL list1){
         return arr;
     }
     // LL 328. ODD even linked list.
-    public void oddEvenList(){
-        LinkedList.LL.Node temp = head;
-        LinkedList.LL.Node temp2 = head.next;
-        int size = 0; int n1 = 0;
-        while(temp != null){
-            size++;
-            temp = temp.next;
-        }
-        temp = head; int n2 = size/2;
-        while(n1 != size/2){
-            temp = temp.next;
-            n1++;
-        } // temp will head to the one on other half of list
 
-    }
+    public void oddEvenList(){
+        LinkedList.LL.Node evenNode  = head.next;
+        LinkedList.LL.Node evenHead = evenNode;
+        LinkedList.LL.Node oddNode = evenNode.next;
+        head.next = oddNode;
+        while(evenNode.next != null && oddNode.next != null){
+            evenNode.next = evenNode.next.next;
+            oddNode.next = oddNode.next.next;
+            evenNode = evenNode.next.next;
+            oddNode = oddNode.next.next;
+
+
+        }
     }
 
 
