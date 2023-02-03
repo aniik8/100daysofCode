@@ -288,24 +288,18 @@ public int middleofLL(LinkedList.LL list1){
     }
     // LL 328. ODD even linked list.
 
-    public void oddEvenList(){
-        LinkedList.LL.Node evenNode  = head.next;
-        LinkedList.LL.Node evenHead = head.next;
-        LinkedList.LL.Node oddNode = evenNode.next;
-        head.next = oddNode;
-        while(evenNode.next != null && oddNode.next != null){
-            evenNode.next = evenNode.next.next;
+    public void oddEvenList() {
+        LinkedList.LL.Node evenNode = head.next;
+        LinkedList.LL.Node evenHead = evenNode;
+        LinkedList.LL.Node oddNode = head;
+        while (oddNode.next != null && evenNode.next != null) {
             oddNode.next = oddNode.next.next;
-
-            if (oddNode.next == null || oddNode.next.next == null){
-                System.out.println(oddNode.data);
-                oddNode.next = evenHead;
-            }
-            // to connect last node
-
-            evenNode = evenNode.next.next;
-            oddNode = oddNode.next.next;
+            oddNode = oddNode.next;
+            evenNode.next = evenNode.next.next;
+            evenNode = evenNode.next;
         }
+        oddNode.next = evenHead;
+    }
 
 
     class Node{
