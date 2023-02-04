@@ -305,7 +305,10 @@ public int middleofLL(LinkedList.LL list1){
         node.val = node.next.val;
         node.next = node.next.next;
     }
-
+// Leetcode 2487.
+public void removeNodes(Node head) {
+return;
+}
 
     class Node{
         int data;
