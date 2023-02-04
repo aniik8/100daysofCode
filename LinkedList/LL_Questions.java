@@ -300,6 +300,11 @@ public int middleofLL(LinkedList.LL list1){
         }
         oddNode.next = evenHead;
     }
+    // 237. Delete node in a linked list
+    public void deleteNode(LinkedList.LL node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
 
 
     class Node{
