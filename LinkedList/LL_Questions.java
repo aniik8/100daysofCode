@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.LinkedList;
+
 public class LL_Questions {
 
     private LinkedList.LL.Node head;
@@ -317,6 +319,44 @@ public void removeNodes(LinkedList.LL l1) {
         }
     }
 }
+// time 6 ms
+public void reverse(LinkedList.LL.Node l1)
+{
+    Node cur= head;
+    Node prev=null;
+    Node next=null;
+
+    while(cur!=null)
+    {
+        next=cur.next;
+        cur.next=prev;
+        prev=cur;
+        cur=next;
+    }
+    return prev;
+}
+
+    public Node removeNodes(LinkedList.LL.Node head) {
+        head=reverse(head);
+        int max=head.val;
+        ListNode iter=head.next;
+        ListNode prev=head;
+        while(iter!=null)
+        {
+            if(iter.val<max)//delete node
+            {
+                prev.next=iter.next;
+            }
+            else//update max value
+            {
+                max=iter.val;
+                prev=iter;
+            }
+            iter=iter.next;
+        }
+
+        return reverse(head);
+    }
 
     class Node{
         int data;
