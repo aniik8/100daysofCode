@@ -307,14 +307,29 @@ public int middleofLL(LinkedList.LL list1){
         node.val = node.next.val;
         node.next = node.next.next;
     }
-// Leetcode 2487.
-public void removeNodes(LinkedList.LL l1) {
+// Leetcode 2487. -- time limit exceeded
+public void removeNodes(LL l1)
+{
+    LinkedList.LL.Node head = l1.head;
     while(head.next.data > head.data){
         head = head.next;
     }
-    LinkedList.LL.Node temp = head;
-    while(temp.next != null){
-        if(temp.next.data > temp.data){
+    if(head !=null)
+    {
+        LinkedList.LL.Node temp = head;
+        LinkedList.LL.Node temp2 = head.next;
+        while (temp != null)
+        {
+            if (temp2.data > temp.data)
+            {
+                temp.data = temp.next.data;
+                temp.next = temp.next.next;
+            }else
+                temp2 = temp2.next;
+            if(temp2 == null && temp != null)
+            {   temp2 = temp.next;
+                temp = temp.next;
+            }
 
         }
     }
