@@ -89,3 +89,31 @@ class Stacksx{
         return top == maxSize;
     }
 }
+
+// delimiter class
+class delimiterChecker{
+    private int maxLength;
+    private int topList;
+    private char[] delimiterList;
+
+    public delimiterChecker(int n){
+        maxLength = n;
+        topList = -1;
+        delimiterList = new char[n];
+    }
+    public void pushStack(char ch){
+
+        delimiterList[++topList] = ch;
+    }
+    public char popStack(){
+        return delimiterList[topList--];
+    }
+    public boolean isEmpty()
+    {
+        return topList == -1;
+    }
+    public boolean isFull()
+    {
+        return topList == maxLength;
+    }
+}
