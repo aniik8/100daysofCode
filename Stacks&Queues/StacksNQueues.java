@@ -13,6 +13,39 @@ public class StacksNQueues {
 //  Stack use LIFO (Last in first out) approach
 //        System.out.println(a);
     }
+    // Leetcode 20; valid parenthesis
+    public boolean isValid(String s) {
+        boolean flag = true;
+        if(s.length() <= 1) return false; // for empty or string len=1;
+        Stack<Character> parenthesis = new Stack<>();
+        for(int i=0; i < s.length(); i++){
+            char ch = s.charAt(i);
+            switch (ch)
+            {
+                case '(':
+                case '{':
+                case '[':
+                    parenthesis.push(ch);
+                    break;
+                case ')':
+                case '}':
+                case ']':
+                    if(!parenthesis.isEmpty())
+                    {
+                        char chPop = parenthesis.pop();
+                        if ((ch == '}' && chPop != '{')
+                                || (ch == ')' && chPop != '(')
+                                || (ch == ']' && chPop != '['))
+                        {
+                            return false;
+                        }
+                    }
+                    else return false;  // prematurely empty
+            }
+        }
+        if(!parenthesis.isEmpty()) return false;
+        else return true;
+    }
 
 }
 class Stacksx{
