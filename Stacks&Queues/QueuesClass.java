@@ -20,5 +20,15 @@ class QueueClass{
     }
 
 
-
+    // insertion at the end;
+    public void insertElement(int element){
+        // if(!isEmpty()) then do this thing
+        if(!isFull()) {
+            queueArray[++rear] = element;
+        }else{
+            System.out.println("Error 404!!!! stack is full");
+        }
+    }
+    // deletion from the front
+    
 }
