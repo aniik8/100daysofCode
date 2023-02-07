@@ -30,5 +30,21 @@ class QueueClass{
         }
     }
     // deletion from the front
-    
+    public int deleteElement(){
+        int temp = queueArray[front++];
+        return temp;
+    }
+    // peek element
+    public int peekElement(){
+        return queueArray[rear];
+    }
+    // isEmpty
+    public boolean isEmpty(){
+        return rear == -1;
+    }
+    // isFull
+    public boolean isFull(){
+        return rear == maxLength;
+    }
+
 }
