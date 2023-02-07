@@ -2,7 +2,15 @@ package StacksNQueues;
 
 public class QueuesClass {
     public static void main(String[] args) {
-
+        QueueClass q = new QueueClass(5);
+        q.insertElement(5);
+        q.insertElement(4);
+        q.insertElement(3);
+        q.insertElement(2);
+        q.insertElement(1);
+        while(!(q.isEmpty())){
+            System.out.println(q.deleteElement());
+        }
     }
 }
 class QueueClass{
