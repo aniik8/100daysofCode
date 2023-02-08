@@ -82,5 +82,19 @@ class MyQueue {
         return removed;
     }
 
-    
+    public int peek() throws Exception{
+        while(!(stack1.isEmpty())){
+            stack2.push(stack1.pop());
+        }
+        int peekEle = stack2.peek();
+
+        while(!(stack2.isEmpty())){
+            stack1.push(stack2.pop());
+        }
+        return peekEle;
+    }
+
+    public boolean empty() {
+        return (stack1.empty() && stack2.empty());
+    }
 }
