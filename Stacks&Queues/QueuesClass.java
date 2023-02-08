@@ -71,5 +71,16 @@ class MyQueue {
         stack1.push(x);
     }
 
+    public int pop() throws Exception{
+        while(!(stack1.isEmpty())){
+            stack2.push(stack1.pop());
+        }
+        int removed = stack2.pop();
+        while(!(stack2.isEmpty())){
+            stack1.push(stack2.pop());
+        }
+        return removed;
+    }
+
     
 }
