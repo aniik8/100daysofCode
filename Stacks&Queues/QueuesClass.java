@@ -1,5 +1,7 @@
 package StacksNQueues;
 
+import java.util.Stack;
+
 public class QueuesClass {
     public static void main(String[] args) {
         QueueClass q = new QueueClass(5);
@@ -55,4 +57,19 @@ class QueueClass{
         return rear == maxLength;
     }
 
+}
+// Queue using two stack;
+class MyQueue {
+    Stack<Integer> stack1;
+    Stack<Integer> stack2;
+    public MyQueue() {
+        stack1 = new Stack<>();
+        stack2 = new Stack<>();
+    }
+
+    public void push(int x) {
+        stack1.push(x);
+    }
+
+    
 }
