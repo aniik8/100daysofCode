@@ -98,21 +98,22 @@ class MyQueue {
         return (stack1.empty() && stack2.empty());
     }
     // 921. Minimum Add to Make Parentheses Valid
-    public static int minAddToMakeValid(String s) {
-        Stack<Character> sc = new Stack<>();
-        int count = 0;
-        for(int i = 0; i < s.length()-1; i++){
-
-            char ch = s.charAt(i);
-            sc.push(ch);
-            char ch1 = s.charAt(i + 1);
-            if (ch == '(') {
+    public static int minAddToMakeValid(String s)
+    {   Stack<Character> sc = new Stack<>();
+        int count =0;
+        char ch;
+        for(int i = 0; i < s.length(); i++){
+            ch = s.charAt(i);
+            if(ch == '(') {
                 sc.push(ch);
-                if(ch1 == ')') sc.pop();
+                continue;
             }
-            //
+
+            if(!(sc.isEmpty()) && (ch == ')'))
+                sc.pop();
+            else if(ch == ')') count++;
         }
-        while(!(sc.isEmpty())){
+        while(!(sc.isEmpty())) {
             count++;
             sc.pop();
         }
