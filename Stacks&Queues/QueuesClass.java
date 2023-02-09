@@ -106,9 +106,9 @@ class MyQueue {
             char ch = s.charAt(i);
             sc.push(ch);
             char ch1 = s.charAt(i + 1);
-            if (ch == '(' && ch1 == ')') {
-                sc.pop();
-                break;
+            if (ch == '(') {
+                sc.push(ch);
+                if(ch1 == ')') sc.pop();
             }
         }
         while(!(sc.isEmpty())){
