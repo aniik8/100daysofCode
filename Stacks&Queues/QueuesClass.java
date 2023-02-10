@@ -122,18 +122,22 @@ class MyQueue {
     //
     public static int longestValidParentheses(String s) {
         Stack<Character> sc = new Stack<>();
+        Stack<Integer> scIndex = new Stack<>();
         int count = 0;
         char ch;
         // if count > 0 and sc.peek == ch; count -=2; return count;
         for (int i = 0; i < s.length(); i++) {
             ch = s.charAt(i);
             if(ch == '('){
-                sc.push(ch);
+                sc.push(ch); // push +1 pop -1
+                scIndex.push(i);
                 continue;
             }
-            if(!(sc.isEmpty()) && ch == ')'){
+            if(!(sc.isEmpty()) && ch == ')')
+            {
                 count+=2;
                 sc.pop();
+                scIndex.pop();
                 continue;
             }
             if(count > 0 && sc.isEmpty() && ch == ')')
@@ -141,8 +145,15 @@ class MyQueue {
         }
 
         while(!sc.isEmpty()){
-            count -=2;
-            sc.pop();
+            if(scIndex.peek() > 1){
+                count -=2;
+                sc.pop();
+                scIndex.pop();
+            }
+            else{
+                sc.pop();
+                scIndex.pop();
+            }
         }
         return Math.max(count, 0);
     }
