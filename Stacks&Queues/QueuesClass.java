@@ -146,4 +146,27 @@ class MyQueue {
         }
         return Math.max(count, 0);
     }
+
+    // iterative way
+    public static int longest(String s){
+        Stack<Integer>data=new Stack<>();
+        data.push(-1);
+        int max=0;
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            if(c=='('){
+                data.push(i);
+            }
+            else{
+                data.pop();
+                if(data.empty()){
+                    data.push(i);
+                }
+                else{
+                    max=Math.max(max,i-data.peek());
+                }
+            }
+        }
+        return max;
+    }
 }
