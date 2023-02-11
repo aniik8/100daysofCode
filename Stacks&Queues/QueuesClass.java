@@ -180,4 +180,31 @@ class MyQueue {
         }
         return max;
     }
+    // leetcode 678
+    public boolean checkValidString(String s) {
+        Stack<Character> sc = new Stack<>();
+        Stack<Character> scS = new Stack<>();
+        char ch;
+        for (int i = 0; i < s.length(); i++) {
+            ch = s.charAt(i);
+            if(ch == '('){
+                sc.push(ch);
+                continue;
+            }
+            if(ch == '*'){
+                scS.push(ch);
+            }
+            if(!sc.isEmpty() && ch == ')'){
+                sc.pop();
+            }
+            if(sc.isEmpty())
+        }
+        while(!(sc.isEmpty())){
+            if(scS.isEmpty()){
+                break;
+            }
+            else if(sc.peek() == '(' && scS)
+        }
+        return true;
+    }
 }
