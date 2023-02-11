@@ -181,7 +181,8 @@ class MyQueue {
         return max;
     }
     // leetcode 678
-    public boolean checkValidString(String s) {
+    public static boolean checkValidString(String s)
+    {   if(s.charAt(0) == ')' || s.length() == 0) return false;
         Stack<Character> sc = new Stack<>();
         Stack<Character> scS = new Stack<>();
         char ch;
@@ -194,17 +195,20 @@ class MyQueue {
             if(ch == '*'){
                 scS.push(ch);
             }
-            if(!sc.isEmpty() && ch == ')'){
+            if(!sc.isEmpty() && ch == ')' && sc.peek() == '('){
                 sc.pop();
-            }
-            if(sc.isEmpty())
+            }else if(ch == ')') sc.push(ch);
         }
         while(!(sc.isEmpty())){
             if(scS.isEmpty()){
-                break;
+                return false;
+            } else if(sc.peek() == '(' || sc.peek() ==')'){
+                sc.pop();
+                scS.pop();
             }
-            else if(sc.peek() == '(' && scS)
         }
+        if(!(sc.isEmpty())) return false;
         return true;
     }
+
 }
