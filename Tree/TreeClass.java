@@ -35,4 +35,8 @@ class tree{
             }
         }
     }
+
+    public int searchNode(int data){
+
+    }
 }
