@@ -36,7 +36,19 @@ class tree{
         }
     }
 
-    public int searchNode(int data){
+    public boolean findNode(int key){
 
+        Node current = root;
+        while(current != null){
+            if(key == current.data){
+                return true;
+            }else if(key > current.data){
+                current = current.rightChild;
+            }
+            else{
+                current = current.leftChild;
+            }
+        }
+        return false;
     }
 }
