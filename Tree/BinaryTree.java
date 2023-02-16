@@ -51,7 +51,19 @@ public class BinaryTree {
         preOrderAdd(root.leftNode);
         preOrderAdd(root.rightNode);
     }
-    // 
+    //Leetcode 145
+    List<Integer> list3 = new ArrayList<>();
+    public List<Integer> postorderTraversal(TreeNode root) {
+        if(root == null) return list3;
+        postOrderAdd(root);
+        return list3;
+    }
+    void postOrderAdd(TreeNode root){
+        if(root == null) return;
+        postOrderAdd(root.leftNode);
+        postOrderAdd(root.rightNode);
+        list3.add(root.data);
+    }
 }
 class TreeNode{
     TreeNode leftNode, rightNode;
