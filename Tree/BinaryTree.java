@@ -1,4 +1,4 @@
-package Tree;
+package 100daysofCode.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +38,20 @@ public class BinaryTree {
         res.add(root.data);
         traverse(root.rightNode);
     }
+
+    // Leetcode 144
+    List<Integer> list2 = new ArrayList<>();
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if(root == null) return list2;
+        preOrderAdd(root);
+        return list2;
+    }
+    void preOrderAdd(TreeNode root){
+        list2.add(root.data);
+        preOrderAdd(root.leftNode);
+        preOrderAdd(root.rightNode);
+    }
+    // 
 }
 class TreeNode{
     TreeNode leftNode, rightNode;
