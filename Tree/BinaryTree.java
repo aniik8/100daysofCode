@@ -1,5 +1,7 @@
 package Tree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -20,6 +22,21 @@ public class BinaryTree {
         root.rightNode = insertNode();
         return root;
 
+    }
+    // leetcode 94.
+    private List<Integer> res = new ArrayList<>();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        traverse(root);
+        return res;
+    }
+
+    private void traverse(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        traverse(root.leftNode);
+        res.add(root.data);
+        traverse(root.rightNode);
     }
 }
 class TreeNode{
