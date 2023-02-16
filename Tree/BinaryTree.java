@@ -64,6 +64,11 @@ public class BinaryTree {
         postOrderAdd(root.rightNode);
         list3.add(root.data);
     }
+    // leetcode 104.
+    public int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+        return Math.max(maxDepth(root.leftNode), maxDepth(root.rightNode)) + 1;
+    }
 }
 class TreeNode{
     TreeNode leftNode, rightNode;
