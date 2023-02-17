@@ -76,6 +76,11 @@ public class BinaryTree {
         if(root == null) return 0;
         return sizeOfTree(root.leftNode) + sizeOfTree(root.rightNode) + 1;
     }
+// maximum of a binary tree
+    public static int maximumOfTree(TreeNode root){
+        if(root == null) return Integer.MIN_VALUE;
+        return Math.max(root.data, Math.max(maximumOfTree(root.leftNode), maximumOfTree(root.rightNode)));
+    }
 }
 class TreeNode{
     TreeNode leftNode, rightNode;
