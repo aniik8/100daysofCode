@@ -69,6 +69,13 @@ public class BinaryTree {
         if(root == null) return 0;
         return Math.max(maxDepth(root.leftNode), maxDepth(root.rightNode)) + 1;
     }
+
+    // Size of a binary tree
+    // size of a binary tree ---->
+    public static int sizeOfTree(TreeNode root){
+        if(root == null) return 0;
+        return sizeOfTree(root.leftNode) + sizeOfTree(root.rightNode) + 1;
+    }
 }
 class TreeNode{
     TreeNode leftNode, rightNode;
