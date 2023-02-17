@@ -81,6 +81,12 @@ public class BinaryTree {
         if(root == null) return Integer.MIN_VALUE;
         return Math.max(root.data, Math.max(maximumOfTree(root.leftNode), maximumOfTree(root.rightNode)));
     }
+// minimum of a binary tree
+    public static int minimumofTree(TreeNode root){
+        if(root == null) return Integer.MAX_VALUE;
+        return Math.min(root.data, Math.min(minimumofTree(root.leftNode), minimumofTree(root.rightNode)));
+    }
+
 }
 class TreeNode{
     TreeNode leftNode, rightNode;
