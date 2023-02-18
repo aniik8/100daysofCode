@@ -86,6 +86,22 @@ public class BinaryTree {
         if(root == null) return Integer.MAX_VALUE;
         return Math.min(root.data, Math.min(minimumofTree(root.leftNode), minimumofTree(root.rightNode)));
     }
+// 199. binary tree right side view
+    List<Integer> list4 = new ArrayList<>();
+    public List<Integer> rightSideView(TreeNode root) {
+        if(root == null)
+            return list4;
+        rightView(root, 0);
+        return list4;
+    }
+    void rightView(TreeNode root, int level){
+        if(root == null) return;
+        if(level == list4.size()){
+            list4.add(root.data);
+        }
+        rightView(root.rightNode, level+1);
+        rightView(root.leftNode, level+1);
+    }
 
 }
 class TreeNode{
