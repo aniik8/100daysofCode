@@ -102,6 +102,21 @@ public class BinaryTree {
         rightView(root.rightNode, level+1);
         rightView(root.leftNode, level+1);
     }
+    // leetcode 114..
+        TreeNode prev = null, next = null;
+        TreeNode head;
+        public void flatten(TreeNode root) {
+            if(root == null) return;
+            flatten(root.leftNode);
+            if(prev == null)head = root;
+            else{
+                root.leftNode = prev;
+                prev.rightNode = root;
+            }
+            prev = root;
+            flatten(root.rightNode);
+        }
+
 
 }
 class TreeNode{
