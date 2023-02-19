@@ -116,6 +116,14 @@ public class BinaryTree {
             prev = root;
             flatten(root.rightNode);
         }
+// 543
+public static int diameterOfBinaryTree(TreeNode root) {
+    if(root == null) return 0;
+    int diameterofleft = diameterOfBinaryTree(root.leftNode);
+    int diameterofright = diameterOfBinaryTree(root.rightNode);
+    int leftright = sizeOfTree(root.leftNode) + sizeOfTree(root.rightNode) + 1;
+    return Math.max(leftright, Math.max(diameterofright, diameterofleft));
+}
 
 
 }
