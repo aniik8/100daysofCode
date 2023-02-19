@@ -124,7 +124,16 @@ public static int diameterOfBinaryTree(TreeNode root) {
     int leftright = sizeOfTree(root.leftNode) + sizeOfTree(root.rightNode) + 1;
     return Math.max(leftright, Math.max(diameterofright, diameterofleft));
 }
+// optimised 543
+    int ans =0;
+    public int diameterofBinary(TreeNode root){
 
+        if(root == null) return 0;
+        int left = diameterofBinary(root.leftNode);
+        int right = diameterofBinary(root.rightNode);
+        ans = Math.max(ans, 1+left+right);
+        return 1 + left + right;
+    }
 
 }
 class TreeNode{
