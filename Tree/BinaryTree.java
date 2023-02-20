@@ -137,10 +137,10 @@ public static int diameterOfBinaryTree(TreeNode root) {
 //236
 public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     if(root == null) return root;
-    if(root.val == p.val || root.val == q.val)return root;
+    if(root.data == p.data || root.data == q.data)return root;
 
-    TreeNode left = lowestCommonAncestor(root.left, p, q);
-    TreeNode right = lowestCommonAncestor(root.right, p, q);
+    TreeNode left = lowestCommonAncestor(root.leftNode, p, q);
+    TreeNode right = lowestCommonAncestor(root.rightNode, p, q);
 
     if(left == null) return right;
     if(right == null) return left;
@@ -148,7 +148,24 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     return root;
 }
     public TreeNode deleteNode(TreeNode root, int key) {
-
+        if(root == null) return root;
+        TreeNode temp = root;
+        while(temp != null) {
+            if(temp.data == key){
+                if(temp.leftNode != null) {
+                    temp.data = temp.leftNode.data;
+                    temp.leftNode = null;
+                }
+                else{
+                    temp = null;
+                }
+            }
+            else if (temp.data > key) {
+                temp = temp.leftNode;
+            }
+            else temp = temp.rightNode;
+        }
+        return root;
     }
 }
 class TreeNode{
