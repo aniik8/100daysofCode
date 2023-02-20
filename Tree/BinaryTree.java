@@ -147,6 +147,9 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
     return root;
 }
+    public TreeNode deleteNode(TreeNode root, int key) {
+
+    }
 }
 class TreeNode{
     TreeNode leftNode, rightNode;
