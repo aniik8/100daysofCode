@@ -151,19 +151,22 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null) return root;
         TreeNode temp = root;
         while(temp != null) {
-            if(temp.data == key){
-                if(temp.leftNode != null) {
-                    temp.data = temp.leftNode.data;
-                    temp.leftNode = null;
+            if(temp.val == key){
+                if(temp.left != null) {
+                    temp.val = temp.left.val;
+                    temp.left = null;
                 }
-                else{
+                else if(temp.right != null){
+                    temp.val = temp.right.val;
+                    temp.right = null;
+                }else{
                     temp = null;
                 }
             }
-            else if (temp.data > key) {
-                temp = temp.leftNode;
+            else if (temp.val > key) {
+                temp = temp.left;
             }
-            else temp = temp.rightNode;
+            else temp = temp.right;
         }
         return root;
     }
