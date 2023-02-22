@@ -197,6 +197,16 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         }
         return min;
     }
+    public TreeNode searchBST(TreeNode root, int val) {
+        while(root != null){
+            if(root.data == val){
+                return root;
+            }else if(root.data > val){
+                root = root.leftNode;
+            }else root = root.rightNode;
+        }
+        return root;
+    }
 }
 class TreeNode{
     TreeNode leftNode, rightNode;
