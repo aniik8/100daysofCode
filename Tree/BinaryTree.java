@@ -209,6 +209,17 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     }
     // leetcode 1008    https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
 }
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int j=0;
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]!=nums[j]){
+                nums[j+1]=nums[i];
+                j++;}
+        }
+        return j+1;
+    }
+}
 class TreeNode{
     TreeNode leftNode, rightNode;
     int data;
