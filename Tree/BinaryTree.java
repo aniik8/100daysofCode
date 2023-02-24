@@ -208,6 +208,20 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         return root;
     }
     // leetcode 1008    https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
+    TreeNode prevs = null;
+    public boolean isValidBST(TreeNode root) {
+        if(root != null){
+            if(!isValidBST(root.leftNode)){
+                return false;
+            }
+            if(prevs != null && root.data <= prev.data){
+                return false;
+            }
+            prevs = root;
+
+            return isValidBST(root.rightNode);
+        }return true;
+    }
 }
 class Solution {
     public int removeDuplicates(int[] nums) {
