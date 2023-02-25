@@ -236,6 +236,7 @@ class Solution {
         return j+1;
     }
 }
+// best time to buy and sell stock leetcode 116.
 class Solution2 {
     public int maxProfit(int[] prices) {
         int lsf = Integer.MAX_VALUE;
