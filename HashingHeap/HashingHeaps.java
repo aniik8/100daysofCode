@@ -51,4 +51,26 @@ public class HashingHeaps {
         }
         return count;
     }
+    public static int[] intersections(int[] nums1, int[] nums2) {
+        HashSet<Integer> hashSet1 = new HashSet<>();
+        int i = 0;
+        HashSet<Integer> hashSetFinal = new HashSet<>();
+        for (int a :
+                nums1) {
+            hashSet1.add(a);
+        }
+        for (int a :
+                nums2) {
+            if(hashSet1.contains(a)){
+                hashSetFinal.add(a);
+            }
+        }
+        int[] arr = new int[hashSetFinal.size()];
+        for (Integer val :
+                hashSetFinal) {
+            arr[i] = val;
+            i++;
+        }
+        return arr;
+    }
 }
