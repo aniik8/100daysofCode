@@ -10,5 +10,14 @@ public class HashingHeaps {
         System.out.println(hash);
         System.out.println(hash.size());
     }
-
+    // count distinct element in an array using hashmap
+    static int countDistinct(int[] arr){
+        int count = 0;
+        HashSet<Integer> hashsEt = new HashSet<>(arr.length);
+        for (int a :
+                arr) {
+            hashsEt.add(a);
+        }
+        return hashsEt.size();
+    }
 }
