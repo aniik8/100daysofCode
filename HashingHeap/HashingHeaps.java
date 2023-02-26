@@ -20,4 +20,15 @@ public class HashingHeaps {
         }
         return hashsEt.size();
     }
+    // union of two arrays
+    static int unionOfArray(int[] arr, int[] arr1){
+        HashSet<Integer> hashSet = new HashSet<>(arr.length+arr1.length);
+        for(int a: arr){
+            hashSet.add(a);
+        }
+        for(int a: arr1){
+            hashSet.add(a);
+        }
+        return hashSet.size();
+    }
 }
