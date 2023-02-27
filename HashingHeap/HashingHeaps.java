@@ -73,4 +73,27 @@ public class HashingHeaps {
         }
         return arr;
     }
+    //  Count Distinct Elements in every Window of size k
+    // important question
+    void countDistinctElements(int[] arr, int k){
+        Map<Integer, Integer> map = new HashMap<>();
+
+        // either add the occurance of element by 1 or if not exist, add 1 to it's index
+        for (int i = 0; i < k; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0) +1);
+        }
+        System.out.println(map.size());
+
+        // to remove the elements of previous index if occurrence equals to 1 or if greater than 1 then subtract 1.
+        for (int i = k; i < arr.length; i++) {
+            if(map.get(arr[i-k]) == 1){
+                map.remove(arr[i-k]);
+            }else{
+                map.put(arr[i-k], map.get(arr[i-k]-1));
+            }
+            map.put(arr[i], map.getOrDefault(arr[i], 0) +1);
+            System.out.println(map.size());
+
+        }
+    }
 }
