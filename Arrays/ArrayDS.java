@@ -1,6 +1,7 @@
 package Arrays;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class ArrayDS {
     public static void main(String[] args) {
@@ -24,6 +25,24 @@ public class ArrayDS {
             }
         }
         return arr;
+    }
+    public static int KthDistinct(int[] nums, int k) {
+        HashSet<Integer> hashmap = new HashSet<>();
+        for (int num : nums)
+        {
+            hashmap.add(num);
+        }
+        System.out.println(hashmap);
+        int i = 0;
+        for (int a : hashmap) {
+            if (i == k)
+                return a;
+            else i++;
+
+
+        }
+
+        return -1;
     }
 
 }
