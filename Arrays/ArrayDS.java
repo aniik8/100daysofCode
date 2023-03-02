@@ -2,6 +2,7 @@ package Arrays;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.PriorityQueue;
 
 public class ArrayDS {
     public static void main(String[] args) {
@@ -43,6 +44,21 @@ public class ArrayDS {
         }
 
         return -1;
+    }
+
+    // kth largest gfg
+    public static int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int i = 0; i < k; i++){
+            pq.add(nums[i]);
+        }
+        for(int i = k; i < nums.length; i++){
+            if(pq.peek() < nums[i]){
+                pq.poll();
+                pq.add(nums[i]);
+            }
+        }
+        return pq.peek();
     }
 
 }
