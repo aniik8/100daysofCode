@@ -28,21 +28,19 @@ public class ArrayDS {
         return arr;
     }
     public static int KthDistinct(int[] nums, int k) {
-        HashSet<Integer> hashmap = new HashSet<>();
-        for (int num : nums)
-        {
-            hashmap.add(num);
+        HashSet<Integer> map = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if(map.contains(nums[i]))
+                map.remove(nums[i]);
+            else map.add(nums[i]);
         }
-        System.out.println(hashmap);
-        int i = 0;
-        for (int a : hashmap) {
-            if (i == k)
+        System.out.println(map);
+        int j = 1;
+        for (int a : map) {
+            if (j == k)
                 return a;
-            else i++;
-
-
+            j++;
         }
-
         return -1;
     }
 
