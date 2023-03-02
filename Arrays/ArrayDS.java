@@ -1,6 +1,7 @@
 package Arrays;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
@@ -28,18 +29,23 @@ public class ArrayDS {
         return arr;
     }
     public static int KthDistinct(int[] nums, int k) {
-        HashSet<Integer> map = new HashSet<>();
-        for (int i = 0; i < nums.length; i++) {
-            if(map.contains(nums[i]))
-                map.remove(nums[i]);
-            else map.add(nums[i]);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < nums.length; i++) {
+            if(map.containsKey(nums[i])){
+                map.put(nums[i], map.get(nums[i])+1);
+            }
+            else{
+                map.put(nums[i], 1);
+            }
         }
-        System.out.println(map);
-        int j = 1;
-        for (int a : map) {
-            if (j == k)
-                return a;
-            j++;
+        // if distinctkey == k noew here we'll declare the distinct key var as 0
+        int distinctkey = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(map.get(nums[i]) == 1)
+                distinctkey++;
+            if(distinctkey == k){
+                return nums[i];
+            }
         }
         return -1;
     }
