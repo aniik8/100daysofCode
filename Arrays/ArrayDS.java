@@ -109,5 +109,15 @@ public static String kthDistinct(String[] arr, int k) {
         }
         return false;
     }
+    //  217 contains duplicates using Set
+    public static boolean containsDuplicateSet(int[] nums) {
+        HashSet<Integer> map = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if(map.contains(nums[i]))
+                return true;
+            else map.add(nums[i]);
+        }
+        return false;
+    }
 }
 
