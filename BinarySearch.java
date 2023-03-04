@@ -103,4 +103,31 @@ public static int findPeakElement(int[] nums) {
         }
         return false;
     }
+//    Given a sorted array and a target sum, check if you can search a pair of three elements such that
+//        the sum of three elements will be equal to the target sum
+    public static int[] searchSumThree(int[] arr, int target){
+        int third_element = 0;
+        int[] copy = new int[3];
+        for (int i = 0; i < arr.length; i++) {
+            int first = arr[i];
+            for (int j = i+1; j < arr.length - 1; j++) {
+                int second = arr[j];
+                if(arr[i] + arr[j] >= target)
+                    break;
+                third_element = binarysearch(arr, target - (first+second));
+                if(third_element == -1) continue;
+                else{
+                    System.out.println("tripled found");
+
+                    copy[0] = first;
+                    copy[1] = second;
+                    copy[2] = third_element;
+                    return copy;
+                }
+            }
+
+
+        }
+        return copy;
+    }
 }
