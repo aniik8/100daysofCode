@@ -84,4 +84,23 @@ public static int findPeakElement(int[] nums) {
     }
     return start;
 }
+    public static boolean isPerfectSquare(int num) { // 36
+        int start = 0, end = num;
+// https://leetcode.com/problems/valid-perfect-square/submissions/851343557/
+
+        if(num == 1) return true;
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            int square = (int) Math.pow(mid,2);
+            if(square == num){
+                return true;
+            }
+            else if(square > num){
+                end = mid-1;
+            }else{
+                start = mid+1;
+            }
+        }
+        return false;
+    }
 }
