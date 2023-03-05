@@ -194,8 +194,21 @@ public static int findPeakElement(int[] nums) {
         return -1;
     }
 //    167. Two Sum II - Input Array Is Sorted
-    public int[] twoSum(int[] numbers, int target) {
+public static int[] twoSum2(int[] numbers, int target) {
+    // it uses binary search but with addition to some thing more
 
+    for (int i = 0; i < numbers.length; i++) {
+        int start = i+1, end = numbers.length - 1;
+        while(start <= end){
+            int mid = start + (end - start)/2;
+            if(numbers[mid] == (target-numbers[i]))
+                return new int[]{i+1, mid+1};
+            else if(numbers[mid] > (target-numbers[i]))
+                end = mid - 1;
+            else start = mid+1;
+        }
     }
+    return new int[]{-1, -1};
+}
 
 }
