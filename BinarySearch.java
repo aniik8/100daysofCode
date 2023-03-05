@@ -210,5 +210,17 @@ public static int[] twoSum2(int[] numbers, int target) {
     }
     return new int[]{-1, -1};
 }
-
+    // two pointers approach // tc o(n)
+    public static int[] twosumTwo(int[] nums, int target){
+        int j = nums.length-1, i = 0;
+        System.out.println(j+ " ,  " + i );
+        while(i < j){
+            if(nums[i] == (target - nums[j]))
+                return new int[]{i+1, j+1};
+            else if(nums[i] < (target - nums[j]))
+                i++;
+            else j--;
+        }
+        return new int[] {-1, -1};
+    }
 }
