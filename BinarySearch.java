@@ -1,3 +1,4 @@
+
 public class BinarySearch {
     public static void main(String[] args) {
 
@@ -192,5 +193,9 @@ public static int findPeakElement(int[] nums) {
         }
         return -1;
     }
-}
+//    167. Two Sum II - Input Array Is Sorted
+    public int[] twoSum(int[] numbers, int target) {
+
+    }
+
 }
