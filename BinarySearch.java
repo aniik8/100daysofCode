@@ -223,4 +223,27 @@ public static int[] twoSum2(int[] numbers, int target) {
         }
         return new int[] {-1, -1};
     }
+    // 941. valid Mountain Array
+    public static boolean validMountainArray(int[] arr){
+        int start = 0; int end = arr.length - 1;
+        int peak;
+        while(start <= end){
+            int mid = start + (end - start) /2;
+            if(start >= arr.length-1) break;
+            else if(arr[mid] == arr[mid+1]) return false;
+            else if(arr[mid] > arr[mid+1])
+                end = mid - 1;
+            else
+                start = mid + 1;
+        }
+        peak = start;
+        System.out.println(arr[peak]);
+        for (int i = 0; i < peak; i++) {
+            if(arr[i] >= arr[i+1]) return false;
+        }
+        for (int i = peak; i < arr.length-1; i++) {
+            if(arr[i] <= arr[i+1]) return false;
+        }
+        return true;
+    }
 }
