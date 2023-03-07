@@ -246,7 +246,7 @@ public static int[] twoSum2(int[] numbers, int target) {
         }
         return true;
     }
-    public static int longestMountainArray(int[] arr){
+    public static int longestMountain(int[] arr){
         // find the peak element
         int start = 0, end = arr.length - 1;
         int count = 0;
