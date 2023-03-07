@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class BinarySearch {
     public static void main(String[] args) {
@@ -274,5 +275,32 @@ public static int[] twoSum2(int[] numbers, int target) {
         }
 
         return (count+1);
+    }
+}
+class Solutions {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        int[] arr = new int[1001];
+        int n = 0;
+        Arrays.sort(nums2);
+        for (int j : nums1) {
+            int element = binarySearch(j, nums2);
+            if (element != -1) {
+                arr[n] = element;
+                n++;
+            }
+        }
+        return Arrays.copyOfRange(arr, 0, n);
+    }
+    int binarySearch(int target, int[] arr){
+        int start = 0, end = arr.length - 1;
+        while(start <= end){
+            int mid = (start + end) / 2;
+            if(arr[mid] == target)
+                return target;
+            else if(arr[mid] > target)
+                end = mid - 1;
+            else start = mid + 1;
+        }
+        return -1;
     }
 }
