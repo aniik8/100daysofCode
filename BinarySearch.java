@@ -246,4 +246,33 @@ public static int[] twoSum2(int[] numbers, int target) {
         }
         return true;
     }
+    public static int longestMountainArray(int[] arr){
+        // find the peak element
+        int start = 0, end = arr.length - 1;
+        int count = 0;
+        while(start <= end){
+            int mid = (start + end)/2;
+            if(start >= arr.length-1) break;
+            if(arr[mid] > arr[mid+1])
+                end = mid - 1;
+            else if (arr[mid] < arr[mid+1])
+                start = mid + 1;
+            else break;
+        }
+        if(start == 0 || start == arr.length - 1) return 0;
+        int peak = start;
+        for (int i = peak; i > 0; i--) {
+            if(arr[i] > arr[i-1]) {
+                count++;
+            }
+            else break;
+        }
+        for (int j = peak; j < arr.length-1; j++) {
+            if(arr[j] > arr[j+1]) {
+                count++;
+            }else break;
+        }
+
+        return (count+1);
+    }
 }
