@@ -331,5 +331,16 @@ class Solutions {
 
         return arr;
     }
+    // 268 Missing Number BruteForce
+    public int missingNumberBruteForce(int[] nums) {
+        Arrays.sort(nums);
+        int i;
+        for(i = 0; i < nums.length; i++)
+        {
+            if(nums[i] != i)
+                return i;
+        }
+        return i;
+    }
 
 }
