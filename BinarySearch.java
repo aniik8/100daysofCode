@@ -384,4 +384,28 @@ class Solutions {
         }
         return max;
     }
+    // bruteforce solution
+    // 209. Minimum Size Subarray Sum
+    static int minSubArrayLen(int target, int[] nums) {
+        int i = 0, j = 0, sum = 0;
+        int length= 0, minLength = Integer.MAX_VALUE;
+
+        while(j < nums.length){
+            sum += nums[j];
+            if(sum >= target){
+                length = j - i + 1;
+                minLength = Math.min(minLength, length);
+                i++;
+                j = i;
+                sum = 0;
+            }
+            else{
+                j++;
+            }
+
+        }
+        if(minLength == Integer.MAX_VALUE) return 0;
+        else return minLength;
+    }
+
 }
