@@ -369,5 +369,19 @@ class Solutions {
         }
         return i;
     }
-
+    static long maximumSumSubarray(int K, ArrayList<Integer> Arr,int N){
+        int i = 0, j = 0, sum = 0, max = Integer.MIN_VALUE;
+        while(j < Arr.size()){
+            sum += Arr.get(j);
+            if((j - i + 1) < K)
+                j++;
+            else if((j - i + 1) == K) {
+                max = Math.max(sum, max);
+                sum -= Arr.get(i);
+                i++;
+                j++;
+            }
+        }
+        return max;
+    }
 }
