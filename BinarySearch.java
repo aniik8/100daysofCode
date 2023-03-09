@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class BinarySearch {
     public static void main(String[] args) {
@@ -354,6 +355,19 @@ class Solutions {
             sum -= a;
         }
         return sum;
+    }
+    // using Hashset
+    public int missingNumberHashSet(int[] nums) {
+        HashSet<Integer> hashSet = new HashSet<>();
+        int i;
+        for (int num : nums) {
+            hashSet.add(num);
+        }
+        for (i = 0; i <= nums.length; i++) {
+            if(!(hashSet.contains(i)))
+                return i;
+        }
+        return i;
     }
 
 }
