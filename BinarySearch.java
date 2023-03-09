@@ -342,5 +342,18 @@ class Solutions {
         }
         return i;
     }
+    // Using Maths 0 ms beats 100%
+    public int missingNumberMaths(int[] nums) {
+        int sum = nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            sum += i;
+        }
+
+        for (int a :
+                nums) {
+            sum -= a;
+        }
+        return sum;
+    }
 
 }
