@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class BinarySearch {
     public static void main(String[] args) {
@@ -406,6 +403,31 @@ class Solutions {
         }
         if(minLength == Integer.MAX_VALUE) return 0;
         else return minLength;
+    }
+    //
+    static long[] printFirstNegativeInteger(long A[], int N, int K)
+    {
+        ArrayList<Long> list = new ArrayList<>();
+        Stack<Long> stack = new Stack<>();
+        long[] arr = new long[N-K+1];
+        int i = 0, j = 0, a = 0;
+        while(j < A.length){
+            if(A[j] < 0)
+                list.add(A[j]);
+            if((j - i + 1) < K){
+                j++;
+            }
+            else if((j - i + 1) == K){
+                if(list.size() == 0)
+                    list.add(0L);
+                else{
+                    arr[a] = list.remove(j);
+                    a++;
+                    i++; j++;
+                }
+            }
+        }
+        return arr;
     }
 
 }
