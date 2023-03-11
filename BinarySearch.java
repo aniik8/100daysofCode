@@ -445,4 +445,29 @@ class Solutions {
         }
         return false;
     }
+    // sub array size equal to k
+    static int subarraySum(int[] nums, int k) {
+        int i = 0, j = 0;
+        int sum = 0, count = 0;
+        while(j < nums.length){
+            sum += nums[j];
+            if(sum < k)
+                j++;
+            else if(sum == k) {
+                count++;
+                sum -= nums[i];
+                i++;
+                j++;
+            }
+            else {
+                while(sum > k)
+                {
+                    sum -= nums[i];
+                    i++;
+                }
+                j++;
+            }
+        }
+        return count;
+    }
 }
