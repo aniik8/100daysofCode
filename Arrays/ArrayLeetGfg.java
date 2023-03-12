@@ -53,4 +53,19 @@ public class ArrayLeetGfg {
         }
         return result;
     }
+    // 53. Maximum Subarray
+    static int maxSubArray(int[] nums) {
+        int i = 0, j = 0, sum = 0;
+        int max_sum = Integer.MIN_VALUE;
+        while(j < nums.length){
+            if(sum <= 0 && nums[j] >= sum){
+                i = j;
+                sum = 0;
+            }
+            sum += nums[j];
+            max_sum = Math.max(sum, max_sum);
+            j++;
+        }
+        return max_sum;
+    }
 }
