@@ -76,4 +76,27 @@ public class ArrayLeetGfg {
         }
         return "";
     }
+    static int maxProduct(int[] nums) {
+        int i = 0,  max_product = nums[0], product = 1, pointer = 0;
+        while (i <= nums.length){
+            if(i < nums.length && nums[i] != 0) {
+                product *= nums[i];
+                max_product = Math.max(product, max_product);
+            }
+            else{
+                int j = pointer; // if there is next zero in an array, this pointer variable will point to next element  of that zero
+                while(j < i - 1){ // because the above condition failed when nums[i] = 0 so we'll run till i - 1;
+                    product /= nums[j];
+                    max_product = Math.max(product, max_product);
+                    j++;
+                }
+                pointer = i + 1;
+                product = 1;
+                if(i < nums.length)
+                    max_product = Math.max(max_product, 0);
+            }
+            i++;
+        }
+        return max_product;
+    }
 }
