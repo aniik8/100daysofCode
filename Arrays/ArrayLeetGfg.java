@@ -194,5 +194,47 @@ return "";
         }
         return list;
     }
+    // Count Occurences of Anagrams GFG
+    static int search(String pat, String txt) {
+        int  j = 0, k = txt.length();
+        int ans = 0;
+
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int a = 0; a < txt.length(); a++) {
+            if(map.containsKey(txt.charAt(a)))
+                map.put(txt.charAt(a), map.getOrDefault(txt.charAt(a), 0)+1);
+            else map.put(txt.charAt(a), 1);
+        }
+        int count = map.size();
+        int i = 0;
+        while(j < pat.length()){
+            if(map.containsKey(pat.charAt(j))) {
+                map.put(pat.charAt(j), map.getOrDefault(pat.charAt(j), 0) - 1);
+                if (map.get(pat.charAt(j)) == 0)
+                    count--;
+            }
+
+            if((j - i + 1) < k) {
+                j++;
+            }
+            else if(j - i + 1 == k) {
+                if (count == 0) {
+                    ans++;
+                }
+
+                if (map.containsKey(pat.charAt(i))) {
+                    map.put(pat.charAt(i), map.get(pat.charAt(i)) + 1);
+                    if (map.get(pat.charAt(i)) == 1) {
+                        count++;
+                    }
+                }
+
+                i++;
+                j++;
+            }
+        }
+        return ans;
+    }
+
 }
 
