@@ -128,4 +128,17 @@ public class ArrayLeetGfg {
     public String minWindow(String s, String t) {
 return "";
     }
+    // 1668. Maximum Repeating Substring 
+    static int maxRepeating2(String sequence, String word) {
+        int c=0;
+        String add=word;
+        while(sequence.contains(word)==true)
+        {
+            c+=1;
+            word=word+add;
+            //System.out.println(word);
+        }
+        return c;
+    }
 }
+
