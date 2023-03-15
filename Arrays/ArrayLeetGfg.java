@@ -128,7 +128,7 @@ public class ArrayLeetGfg {
     public String minWindow(String s, String t) {
 return "";
     }
-    // 1668. Maximum Repeating Substring 
+    // 1668. Maximum Repeating Substring
     static int maxRepeating2(String sequence, String word) {
         int c=0;
         String add=word;
@@ -139,6 +139,19 @@ return "";
             //System.out.println(word);
         }
         return c;
+    }
+    // approach 2
+    static boolean isAnagrams(String s, String t){
+        if(s.length() != t.length())
+            return false;
+        char[] arr = s.toCharArray();
+        char[] arr2 = t.toCharArray();
+        Arrays.sort(arr);
+        Arrays.sort(arr2);
+
+
+        return Arrays.equals(arr, arr2);
+
     }
 }
 
