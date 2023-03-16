@@ -261,5 +261,27 @@ return "";
         }
         return max_count;
     }
+
+    // maxSlidingWindow
+
+    static int[] maxSlidingWindow(int[] nums, int k) {
+        // 1,3,-1,-3,5,3,6,7
+        int i = 0, j = 0, a = 0,  max = Integer.MIN_VALUE;
+        int[] arr = new int[nums.length - k + 1];
+        while(j < nums.length){
+            max = Math.max(nums[j], max);
+            if(j - i + 1 < k)
+                j++;
+            else if(j - i + 1 == k){
+                arr[a++] = max;
+                if(nums[i] == max){
+                    max = Integer.MIN_VALUE;
+                }
+                i++;
+                j++;
+            }
+        }
+        return arr;
+    }
 }
 
