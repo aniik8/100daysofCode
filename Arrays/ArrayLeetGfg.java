@@ -235,6 +235,31 @@ return "";
         }
         return ans;
     }
+    static int lengthOfLongestSubstring(String s) {
+        if(s.length() == 0 || s.length() == 1) return s.length();
+        int i = 0, j = 0; int max_count = Integer.MIN_VALUE;
+        HashMap<Character, Integer> map = new HashMap<>();
 
+        while(j < s.length()) {
+            if (!(map.containsKey(s.charAt(j)))) {
+                map.put(s.charAt(j), 1);
+                max_count = Math.max(max_count, j - i + 1);
+            }
+            else {
+                // dvdf
+                while(s.charAt(i) != s.charAt(j)) {
+                    map.remove(s.charAt(i));
+                    i++;
+                }
+                map.remove(s.charAt(i));
+                i++;
+                map.put(s.charAt(j), 1);
+
+            }
+
+            j++;
+        }
+        return max_count;
+    }
 }
 
