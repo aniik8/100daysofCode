@@ -283,5 +283,26 @@ return "";
         }
         return arr;
     }
+
+    // approach 2 with time
+    static int[] slidingWindowMaxi(int[] nums, int k){
+        int i = 0, j = 0, max = Integer.MIN_VALUE, a = 0;
+        int[] arr = new int[nums.length - k + 1];
+        int[] copy_array = new int[k];
+        while(j < nums.length){
+            if(j - i + 1 < k){
+                j++;
+            }
+            else if(j - i + 1 == k){
+                copy_array = Arrays.copyOfRange(nums, i, j+1);
+                Arrays.sort(copy_array);
+                arr[a++] = copy_array[copy_array.length-1];
+                i++;
+                j++;
+            }
+
+        }
+        return arr;
+    }
 }
 
