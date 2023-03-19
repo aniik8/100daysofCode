@@ -334,5 +334,26 @@ return "";
 
         return max;
     }
+    // 904. Fruit Into Baskets.
+    static int totalFruit(int[] fruits) {
+        //  3,3,3,1,2,1,1,2,3,3,4
+        int i = 0, j = 0, max = Integer.MIN_VALUE;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        if(fruits.length < 3) return fruits.length;
+        while(j < fruits.length){
+            map.put(fruits[j], map.getOrDefault(fruits[j], 0) + 1);
+            while(map.size() > 2){
+                map.put(fruits[i], map.get(fruits[i])-1);
+                if(map.get(fruits[i]) == 0) {
+                    map.remove(fruits[i]);
+                }
+                i++;
+            }
+            max = Math.max(max, j - i + 1);
+            j++;
+        }
+
+        return max;
+    }
 }
 
