@@ -503,5 +503,16 @@ class Solutions {
         }
         return -1;
     }
+    // 58. Length of Last Word
+
+    public int lengthOfLastWord(String s) {
+        int i = s.length()-1, count = 0;
+
+        while(s.charAt(i) != ' '){
+            count++;
+            i--;
+        }
+        return count;
+    }
 }
 
