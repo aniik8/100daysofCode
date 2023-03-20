@@ -492,5 +492,16 @@ class Solutions {
         }
         return "";
     }
-
+//    public String minWindow(String s, String t) {
+//        return "";
+//    }
+// 28. Find the Index of the First Occurrence in a String
+    static int strStr(String haystack, String needle) {
+        int i = 0;
+        if(haystack.contains(needle)){
+            return haystack.indexOf(needle);
+        }
+        return -1;
+    }
 }
+
