@@ -401,5 +401,9 @@ public int findMaxConsecutiveOnes(int[] nums) {
     }
     return Math.max(max_count, count);
 }
+// 128. Longest Consecutive Sequence
+public int longestConsecutive(int[] nums) {
+
+}
 }
 
