@@ -386,5 +386,20 @@ return "";
         }
         return max_count;
     }
+// 485. Max Consecutive Ones
+public int findMaxConsecutiveOnes(int[] nums) {
+    int j = 0, count = 0, max_count = 0;
+    while(j < nums.length){
+        if(nums[j] == 1){
+            count++;
+
+        }else {
+            max_count = Math.max(max_count, count);
+            count = 0;
+        }
+        j++;
+    }
+    return Math.max(max_count, count);
+}
 }
 
