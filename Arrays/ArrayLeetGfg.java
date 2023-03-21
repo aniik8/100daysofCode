@@ -369,5 +369,22 @@ return "";
         }
         return count;
     }
+    // 2414. Length of the Longest Alphabetical Continuous Substring
+    static int longestContinuousSubstring(String s) {
+        int i = 0, j = 1, left = 0,  max_count = 1, count;
+        if(s.length() <= 1) return s.length();
+        while(j < s.length()){
+            if((s.charAt(left)+1) == (s.charAt(j))){
+                count = j - i + 1;
+                max_count = Math.max(max_count, count);
+            }
+            else{
+                i = j;
+            }
+            left++;
+            j++;
+        }
+        return max_count;
+    }
 }
 
