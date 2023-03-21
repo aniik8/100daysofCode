@@ -355,5 +355,19 @@ return "";
 
         return max;
     }
+    //2348 Number of zero filled subarray
+    static long zeroFilledSubarray(int[] nums) {
+        long count = 0, subarrayCount = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 0)
+            {
+                count++;
+                subarrayCount += count;
+            }else{
+                count = 0;
+            }
+        }
+        return count;
+    }
 }
 
