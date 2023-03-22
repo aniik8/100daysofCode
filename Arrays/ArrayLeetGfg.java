@@ -401,19 +401,19 @@ public int findMaxConsecutiveOnes(int[] nums) {
     }
     return Math.max(max_count, count);
 }
-    // 128. Longest Consecutive Sequence
-    static int longestConsecutive(int[] nums) {
+    // 128. Longest Consecutive Sequence o(nlogn)
+    public int longestConsecutive(int[] nums) {
         Arrays.sort(nums);
-        System.out.println(Arrays.toString(nums));
         int count = nums.length > 0 ? 1 : 0;
+        int max_count = count;
         for (int i = 0, j = 1; i < j && j < nums.length; i++, j++) {
 
             if(nums[i]+1 == nums[j]){
                 count++;
-            }else count = 1;
+            }else if(nums[i] != nums[j]) count = 1;
+            max_count = Math.max(count, max_count);
         }
-        return count;
-// https://leetcode.com/problems/longest-consecutive-sequence/
+        return max_count;
     }
 }
 
