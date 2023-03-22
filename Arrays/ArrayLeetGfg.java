@@ -415,5 +415,35 @@ public int findMaxConsecutiveOnes(int[] nums) {
         }
         return max_count;
     }
+// O(N) approach
+    static int longestConsecutivee(int[] nums){
+        HashSet<Integer> set = new HashSet<>();
+        int i = 0, length = 0, max_length = 0, left, right;
+        while(i < nums.length){
+            set.add(nums[i]);
+            i++;
+        }
+        i = 0;
+        while(i < nums.length){
+            if(set.remove(nums[i])){
+                length = 1;
+                left = nums[i] - 1;
+                right = nums[i] + 1;
+
+                while(set.remove(left)){
+                    left--;
+                    length++;
+                }
+                while(set.remove(right)){
+                    right++;
+                    length++;
+                }
+
+            }
+            max_length = Math.max(length, max_length);
+            i++;
+        }
+        return max_length;
+    }
 }
 
