@@ -445,5 +445,11 @@ public int findMaxConsecutiveOnes(int[] nums) {
         }
         return max_length;
     }
+// 2177. Find Three Consecutive Integers That Sum to a Given Number
+    static long[] sumOfThree(long num) {
+        if(num % 3 != 0) return new long[]{};
+        long a = (num - 3)/3;
+        return new long[]{a, a+1, a+2};
+    }
 }
 
