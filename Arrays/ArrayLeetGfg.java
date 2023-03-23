@@ -453,8 +453,10 @@ public int findMaxConsecutiveOnes(int[] nums) {
     }
     //https://leetcode.com/problems/number-of-ways-to-buy-pens-and-pencils/description/
     //2240. Number of Ways to Buy Pens and Pencils
-    public long waysToBuyPensPencils(int total, int cost1, int cost2) {
+//    public long waysToBuyPensPencils(int total, int cost1, int cost2) {
+//
+//    }
 
-    }
 }
+
 
