@@ -55,5 +55,39 @@ static int findKRotation(int arr[], int n) {
     }
     return 0;
 }
-    
+    // 33. Search in Rotated Sorted Array
+    static int search(int[] nums, int target){
+        // take out the min index first.
+        int start = 0, end = nums.length - 1, mid, pivot=0;
+        if(nums[start] <= nums[end]) {
+            return Binarysearch(nums, target, 0, nums.length-1);
+        }
+        // 4,5,6,7,0,1,2
+        while(start <= end){
+            mid = start + (end - start)/2;
+            int prev = (mid + nums.length  - 1) % nums.length;
+            int next = (mid + 1) % nums.length;
+            if(nums[mid] <= nums[prev] && nums[mid] <= nums[next] )
+                pivot = mid;
+            else if(nums[start] <= nums[mid])
+                start = mid + 1;
+            else end = mid - 1;
+        }
+        int leftsearch = Binarysearch(nums, target, 0, pivot-1);
+        int rightsearch = Binarysearch(nums, target, pivot, nums.length-1);
+        return Math.max(leftsearch, rightsearch);
+
+    }
+    static int Binarysearch(int[] nums, int target, int start, int end){
+        while(start <= end){
+            int mid = start + (end - start)/2;
+            if(nums[mid] == target)
+                return mid;
+            else if(nums[mid] < target)
+                start = mid + 1;
+            else end = mid - 1;
+        }
+        return -1;
+    }
+
 }
