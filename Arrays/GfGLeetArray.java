@@ -35,7 +35,25 @@ public class GfGLeetArray {
 // ---------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------------------------------
 // 2. Number of rotations in a rotated sorted array. gfg
-int findKRotation(int arr[], int n) {
-    // code here
+static int findKRotation(int arr[], int n) {
+    int start = 0, end = n - 1;
+    while(start <= end){
+        if(arr[start] <= arr[end]) return start;
+        int mid = start + (end - start) / 2;
+        int prev = (mid + n  - 1) % n;
+        int next = (mid + 1) % n;
+        if(arr[mid] <= arr[prev] && arr[mid] <= arr[next]){
+            return mid;
+        }
+        // because element is being found in unsorted part
+        else if(arr[start] <= arr[mid]){
+            start = mid + 1;
+        }
+        else{
+            end = mid - 1;
+        }
+    }
+    return 0;
 }
+    
 }
