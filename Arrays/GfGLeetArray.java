@@ -157,14 +157,35 @@ static int findKRotation(int arr[], int n) {
         while(start <= end){
             int mid = start + (end - start)/2;
             if(letters[mid] == target){
-                if(mid + 1 < (letters.length - 1)){
-                    return letters[mid+1];
-                }else return letters[mid];
+                start = mid + 1;
             }
             else if(letters[mid] > target){
                 result = letters[mid];
                 end = mid - 1;
             }else {
+                start = mid + 1;
+            }
+        }
+        return result;
+    }
+
+// search in an infinite sorted array..
+
+
+    // Minimum Difference Element in a Sorted Array ---- Floor value of difference
+    // first calculate the floor index and return the same,
+    static int minDifference(int[] arr, int n, int x)
+    {   int result = -1;
+        int start = 0, end = n - 1;
+        while(start <= end){
+            int mid = start + (end - start) / 2;
+            if(arr[mid] == x){
+                return mid;
+            }
+            else if(arr[mid] > x){
+                end = mid - 1;
+            }else{
+                result = mid;
                 start = mid + 1;
             }
         }
