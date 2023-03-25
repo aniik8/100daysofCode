@@ -168,8 +168,18 @@ static int findKRotation(int arr[], int n) {
         }
         return result;
     }
-
-// search in an infinite sorted array..
+    // search in an infinite sorted array..
+    static int searchInInfiniteArray(int[] nums, int target){
+        int start = 0, end = 1;
+        int index = 0;
+        while(nums[end] < target){
+            start = end;
+            end = end * 2;
+        }
+        // Do binary search from start to end; No matter what the infinite array is, we do only care about the array in
+        // which our element reside.
+        return index;
+    }
 
 
     // Minimum Difference Element in a Sorted Array ---- Floor value of difference
