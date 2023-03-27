@@ -1,5 +1,8 @@
 package Arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GfGLeetArray {
     public static void main(String[] args) {
 
@@ -200,5 +203,26 @@ static int findKRotation(int arr[], int n) {
             }
         }
         return result;
+    }
+
+    // 119 Pascal Triangle
+    static List<Integer> pascalTriangle(int n){
+        List<Integer> row = new ArrayList<>();
+        row.add(1);
+        if(n==0) {
+            return row;
+        }
+        else{
+            List<Integer> previous_row = pascalTriangle(n-1);
+
+
+            for(int i =0;i < previous_row.size()-1; i++){
+                int rows = previous_row.get(i) + previous_row.get(i + 1);
+                row.add(rows);
+            }
+            row.add(1);
+            return row;
+        }
+
     }
 }
