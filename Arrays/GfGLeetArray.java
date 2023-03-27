@@ -225,4 +225,6 @@ static int findKRotation(int arr[], int n) {
         }
 
     }
+// Bitonic arrray have similar approach as the peak element array. so questions like :
+    /* "Maximum in a bitonic array and search an element in bitonic array all have same concept" */
 }
