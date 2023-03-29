@@ -240,4 +240,39 @@ public int removeElement(int[] nums, int val) {
     }
     return i;
 }
+// Book allocation problem GFG
+static boolean allocationPossible(int mid, int [] Arr, int M){
+    int student = 1;
+    int sum =0;
+    for(int i=0; i< Arr.length ; i++){
+        if(Arr[i] > mid) return false;
+        if(sum + Arr[i] > mid ){
+            student++;
+            sum = Arr[i];
+        }else {
+            sum += Arr[i];
+        }
+        if(student > M) return false;
+    }
+    return true;
+}
+    public static int findPages(int[]A,int N,int M)
+    {
+        if(N<M) return -1;
+        int low = A[0];     // minimum of all element
+        int high = 0;
+        for(int i=0; i< N; i++) high += A[i]; // to find the sum of all the elements.
+        int mid = 0;
+        int res = 0;
+        while(low <=high){
+            mid = (low+high)/2;
+            if(allocationPossible(mid, A, M)){
+                res = mid;
+                high = mid-1;
+            } else {
+                low = mid+1;
+            }
+        }
+        return res;
+    }
 }
