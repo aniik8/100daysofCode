@@ -275,4 +275,10 @@ static boolean allocationPossible(int mid, int [] Arr, int M){
         }
         return res;
     }
+    /*
+     Aggressive cow (spoj)
+    Prata and roti (spoj)
+    EKO (spoj)
+    Google kickstart A Q-3 2020
+     * */
 }
