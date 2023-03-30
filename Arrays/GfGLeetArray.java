@@ -281,4 +281,31 @@ static boolean allocationPossible(int mid, int [] Arr, int M){
     EKO (spoj)
     Google kickstart A Q-3 2020
      * */
+
+    public int shipWithinDays(int[] weights, int days) {
+        int n=weights.length;
+        int sum=0, max=0;
+        for(int i=0; i<n; i++)
+        {
+            sum+=weights[i];
+            if(weights[i]>max)
+            {
+                max=weights[i];
+            }
+        }
+        int res=-1;
+        while(max<=sum)
+        {
+            int mid=max+(sum-max)/2;
+            if(isValid(weights, n, days, mid))
+            {
+                res=mid;
+                sum=mid-1;
+            }
+            else{
+                max=mid+1;
+            }
+        }
+        return res;
+    }
 }
