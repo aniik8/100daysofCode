@@ -331,4 +331,25 @@ static boolean allocationPossible(int mid, int [] Arr, int M){
         }
         return arr;
     }
+    // 287. Duplicate number
+    public int findDuplicate(int[] nums) {
+        int i =0;
+
+        while(i < nums.length){
+            int correct_index = nums[i] - 1;
+            if (nums[i] != nums[correct_index])
+            {
+                int temp = nums[correct_index];
+                nums[correct_index] = nums[i];
+                nums[i] = temp;
+            }
+            else i++;
+        }
+        for (int j = 1; j < nums.length; j++) {
+            if(nums[j-1] < j){
+                return nums[j-1];
+            }
+        }
+        return nums[nums.length-1];
+    }
 }
