@@ -352,4 +352,5 @@ static boolean allocationPossible(int mid, int [] Arr, int M){
         }
         return nums[nums.length-1];
     }
+    https://practice.geeksforgeeks.org/problems/next-larger-element-1587115620/1
 }
