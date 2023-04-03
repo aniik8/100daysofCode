@@ -101,4 +101,17 @@ public class StackLeetGfg {
         }
         return arr;
     }
+    // Stock span problem
+    // greater to right algo
+    static int[] calculateSpan(int price[], int n)
+    {   Stack<Integer> stack = new Stack<>();
+        int[] arr = new int[price.length];
+        for (int i = 0; i < price.length; i++) {
+            while(!stack.isEmpty() && price[stack.peek()] <= price[i]) stack.pop();
+            if(stack.isEmpty()) arr[i]=i+1;
+            else arr[i]=i-stack.peek();
+            stack.push(i);
+        }
+        return arr;
+    }
 }
