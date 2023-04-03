@@ -77,4 +77,28 @@ public class StackLeetGfg {
         return array;
         // Your code goes here
     }
+    // 1475. Final Prices With a Special Discount in a Shop
+    static int[] finalPrices(int[] prices) {
+        Stack<Integer> stack = new Stack<>();
+        int[] arr = new int[prices.length];
+        int a = prices.length - 1;
+        for (int i = prices.length-1; i >= 0; i--){
+            if(stack.empty()){
+                arr[a--] = prices[i];
+            }
+            else if(stack.size() > 0 && prices[i] > stack.peek())
+                arr[a--] = prices[i] - stack.peek();
+            else if(stack.size() > 0 && prices[i] < stack.peek()){
+                while(stack.size() > 0 && prices[i] < stack.peek()){
+                    stack.pop();
+                }
+                if(stack.size() == 0) arr[a--] = prices[i];
+                else arr[a--] = prices[i] - stack.peek();
+            }
+            else if(prices[i] == stack.peek())
+                arr[a--] = 0;
+            stack.push(prices[i]);
+        }
+        return arr;
+    }
 }
