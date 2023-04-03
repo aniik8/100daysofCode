@@ -52,4 +52,29 @@ public class StackLeetGfg {
         }
         return list;
     }
+    // Next smaller right.
+    // Help Classmates ------> https://practice.geeksforgeeks.org/problems/fab3dbbdce746976ba35c7b9b24afde40eae5a04/1
+    static int[] help_classmate(int[] arr, int n)
+    {   Stack<Integer> stack = new Stack<>();
+        int[] array = new int[arr.length];
+        int a = arr.length-1;
+        for (int i = n-1; i >=0 ; i--) {
+            if(stack.size() == 0)
+                array[a--] = -1;
+            else if(stack.size() > 0 && arr[i] > stack.peek()){
+                array[a--] = stack.peek();
+            }else if(stack.size() > 0 && arr[i] <= stack.peek()){
+                while(stack.size() > 0 && arr[i] <= stack.peek())
+                {
+                    stack.pop();
+                }
+                if(stack.size() == 0) array[a--] = -1;
+                else array[a--] = stack.peek();
+
+            }
+            stack.push(arr[i]);
+        }
+        return array;
+        // Your code goes here
+    }
 }
