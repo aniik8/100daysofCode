@@ -114,4 +114,6 @@ public class StackLeetGfg {
         }
         return arr;
     }
+    // https://leetcode.com/problems/largest-rectangle-in-histogram/
+    // Maximum area histogram
 }
