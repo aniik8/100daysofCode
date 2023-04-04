@@ -1,6 +1,7 @@
 package StacksNQueues;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -116,4 +117,47 @@ public class StackLeetGfg {
     }
     // https://leetcode.com/problems/largest-rectangle-in-histogram/
     // Maximum area histogram
+    static int largestRectangleArea(int[] heights) {
+        int max_area = 0;
+        Stack<Integer> stack = new Stack<>();
+        int[] left_arr = new int[heights.length];
+        int[] right_arr = new int[heights.length];
+        int[] area = new int[heights.length];
+        // nearest smallest left.
+        for (int i = 0; i < heights.length; i++) {
+            if(stack.isEmpty()) left_arr[i] = -1;
+            else if(stack.size() > 0 && heights[stack.peek()] >= heights[i]){
+                while(stack.size() > 0 && heights[stack.peek()] >= heights[i]){
+                    stack.pop();
+                }
+                if(stack.size() == 0) left_arr[i] = -1;
+                else left_arr[i] = stack.peek();
+            }
+            else if(stack.size() > 0 && heights[stack.peek()] < heights[i])
+                left_arr[i] = stack.peek();
+            stack.push(i);
+        }
+        stack.empty();
+        System.out.println(Arrays.toString(left_arr));
+        int a = heights.length - 1;
+        for (int i = heights.length-1; i >= 0; i--) {
+            if(stack.isEmpty()) right_arr[a--] = heights.length;
+            else if(stack.size() > 0 && heights[stack.peek()] >= heights[i]){
+                while(stack.size() > 0 && heights[stack.peek()] >= heights[i]){
+                    stack.pop();
+                }
+                if(stack.size() == 0) right_arr[a--] = heights.length;
+                else right_arr[a--] = stack.peek();
+            }
+            else if(stack.size() > 0 && heights[stack.peek()] < heights[i])
+                right_arr[a--] = stack.peek();
+            stack.push(i);
+        }
+        System.out.println(Arrays.toString(right_arr));
+        for (int i = 0; i < heights.length; i++) {
+            area[i] = (right_arr[i] - left_arr[i] - 1) * heights[i];
+        }
+        System.out.println(Arrays.toString(area));
+        return max_area;
+    }
 }
