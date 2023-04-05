@@ -199,4 +199,8 @@ public class StackLeetGfg {
         return max;
 
     }
+    // 85 LeetCode
+    int maximalRectangle(char[][] matrix) {
+
+    }
 }
