@@ -161,45 +161,42 @@ public class StackLeetGfg {
         return max_area;
     }
     // simple approach
-    static int largestRectangleAreas(int[] heights) {
-        int n = heights.length;
-        int max = 0;
-        int nr[] = new int[n];
-        int nl[] = new int[n];
-
-        Stack<Integer> s = new Stack<>();
-        // Right
-        for (int i = n - 1; i >= 0; i--) {
-            while (!s.empty() && heights[s.peek()] >= heights[i]) {
-                s.pop();
-            }
-            if (s.empty()) {
-                nr[i] = n;
-            } else {
-                nr[i] = s.peek();
-            }
-            s.push(i);
-        }
-        // Left
-        s = new Stack<>();
+    static int largestRectsangleArea(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+        int[] left_arr = new int[heights.length];
+        int[] right_arr = new int[heights.length];
+        int[] area = new int[heights.length];
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i < heights.length; i++) {
-            while (!s.empty() && heights[s.peek()] >= heights[i]) {
-                s.pop();
+            while (stack.size() > 0 && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
             }
-            if (s.empty()) {
-                nl[i] = -1;
-            } else {
-                nl[i] = s.peek();
+            if (stack.size() == 0) left_arr[i] = -1;
+            else left_arr[i] = stack.peek();
+
+
+            stack.push(i);
+        }
+        stack.empty();
+        int a = heights.length - 1;
+        for (int i = heights.length - 1; i >= 0; i--)
+        {
+            while (stack.size() > 0 && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
             }
-            s.push(i);
+            if (stack.size() == 0) right_arr[i] = heights.length;
+            else right_arr[i] = stack.peek();
+
+            stack.push(i);
+        }
+        System.out.println(Arrays.toString(right_arr));
+        System.out.println(Arrays.toString(left_arr));
+        for (int i = 0; i < heights.length; i++) {
+            area[i] = (right_arr[i] - (left_arr[i]) - 1) * heights[i];
+            max = Math.max(max, area[i]);
         }
 
-        for (int i = 0; i < n; i++) {
-            int hi = heights[i];
-            int width = nr[i] - nl[i] - 1;
-            int curr = hi * width;
-            max = Math.max(curr, max);
-        }
         return max;
+
     }
 }
