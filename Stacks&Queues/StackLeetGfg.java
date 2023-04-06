@@ -230,4 +230,38 @@ public class StackLeetGfg {
         }
         return maxi;
     }
+
+    // 42 trapping rain water
+    static int trap(int[] height) {
+        // maximum from the right array
+        // maximum from the left array
+        // minimum of both array and subtract them from the current array element
+        // sum of all the array element.
+        // 1. maximum element from the left.
+        int maxiLeft = height[0], sum = 0, min;
+        int maxiRight = height[height.length-1];
+        int[] maxLeft = new int[height.length];
+        maxLeft[0] = maxiLeft;
+        int[] maxRight = new int[height.length];
+        maxRight[height.length-1] = maxiRight;
+        for (int i = 1; i < height.length; i++) {
+            if(maxiLeft < height[i]){
+                maxiLeft = height[i];
+            }
+            maxLeft[i] = maxiLeft;
+        }
+        System.out.println(Arrays.toString(maxLeft));
+        for (int i = height.length-2; i >= 0; i--) {
+            if(maxiRight < height[i]){
+                maxiRight = height[i];
+            }
+            maxRight[i] = maxiRight;
+        }
+        System.out.println(Arrays.toString(maxRight));
+        for (int i = 0; i < height.length; i++) {
+            min = Math.min(maxLeft[i], maxRight[i]) - height[i];
+            sum += min;
+        }
+        return sum;
+    }
 }
