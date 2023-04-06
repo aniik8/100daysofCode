@@ -200,7 +200,34 @@ public class StackLeetGfg {
 
     }
     // 85 LeetCode
-    int maximalRectangle(char[][] matrix) {
+    static int maximalRectangle(char[][] matrix) {
+        // Normal input of first array as the base
+        int row = matrix.length, col = matrix[0].length, maxi = Integer.MIN_VALUE, area;
+        int[] arr = new int[matrix[0].length];
+        for (int i = 0; i < col; i++) {
+            if(matrix[0][i] == '1')
+                arr[i] = 1;
+            else arr[i] = 0;
+        }
+        //calculate the maximum
 
+        area = largestRectangleArea(arr);
+        maxi = Math.max(maxi, area);
+        for (int i = 1; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if(matrix[i][j] == '0') arr[j] = 0;
+
+                    // add the other array to the current one and calculate the maximum area;
+                else {
+                    if(matrix[i][j] == '1')
+                        arr[j] = arr[j] +  1;
+                }
+            }
+
+            area = largestRectangleArea(arr);
+
+            maxi = Math.max(maxi, area);
+        }
+        return maxi;
     }
 }
