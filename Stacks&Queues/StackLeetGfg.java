@@ -293,3 +293,69 @@ public class StackLeetGfg {
         return sum;
     }
 }
+// Max rectangle area ---> gfg
+class Solutsion {
+    public int maxArea(int M[][], int n, int m) {
+        int row = M.length, col = M[0].length, maxi = Integer.MIN_VALUE, area;
+        int[] arr = new int[M[0].length];
+        // calculating the area the first row
+        for (int i = 0; i < col; i++)
+        {   arr[i] = M[0][i];
+        }
+        // calculating the area the first row
+        area = largestRectangleArea(arr);
+        maxi = Math.max(maxi, area);
+        for (int i = 1; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                // if our element at base is 0, then no need to calculate the area of that part.
+                if(M[i][j] == 0) arr[j] = 0;
+
+                    // add the other array to the current one and calculate the maximum area;
+                else {
+                    if(M[i][j] == 1)
+                        arr[j] = arr[j] +  1;
+                }
+            }
+            area = largestRectangleArea(arr);
+            maxi = Math.max(maxi, area);
+        }
+        return maxi;
+    }
+    // Calculating area, same function as Largest Area Histogram problem
+    int largestRectangleArea(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+        int height = heights.length;
+        int[] left_arr = new int[height];
+        int[] right_arr = new int[height];
+        int[] area = new int[height];
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < height; i++)
+        {
+            while (stack.size() > 0 && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+
+            if (stack.size() == 0) left_arr[i] = -1;
+            else left_arr[i] = stack.peek();
+            stack.push(i);
+        }
+        stack = new Stack<>();
+        int a = height - 1;
+        for (int i = height - 1; i >= 0; i--) {
+
+            while (stack.size() > 0 && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+            if (stack.size() == 0) right_arr[a--] = height;
+            else right_arr[a--] = stack.peek();
+
+            stack.push(i);
+        }
+        for (int i = 0; i < height; i++) {
+            area[i] = (right_arr[i] - (left_arr[i]) - 1) * heights[i];
+            max = Math.max(max, area[i]);
+        }
+
+        return max;
+    }
+}
