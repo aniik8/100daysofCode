@@ -264,4 +264,32 @@ public class StackLeetGfg {
         }
         return sum;
     }
+    // maximum trapping rainwater GFG
+    static long trappingWater(int arr[], int n) {
+        int maxiLeft = arr[0], min;
+        long sum = 0;
+        int h = arr.length;
+        int maxiRight = arr[h-1];
+        int[] maxLeft = new int[h];
+        maxLeft[0] = maxiLeft;
+        int[] maxRight = new int[h];
+        maxRight[h-1] = maxiRight;
+        for (int i = 1; i < arr.length; i++) {
+            if(maxiLeft < arr[i]){
+                maxiLeft = arr[i];
+            }
+            maxLeft[i] = maxiLeft;
+        }
+        for (int i = arr.length-2; i >= 0; i--) {
+            if(maxiRight < arr[i]){
+                maxiRight = arr[i];
+            }
+            maxRight[i] = maxiRight;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            min = Math.min(maxLeft[i], maxRight[i]) - arr[i];
+            sum += min;
+        }
+        return sum;
+    }
 }
