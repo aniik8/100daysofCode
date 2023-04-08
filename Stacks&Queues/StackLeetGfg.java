@@ -358,4 +358,17 @@ class Solutsion {
 
         return max;
     }
+    static int maximalSquare(char[][] matrix) {
+        int n = matrix[0].length;
+        int m = matrix.length;
+        int[] hist = new int[n];
+        int ans = 0;
+        for (char[] chars : matrix) {
+            for (int col = 0; col < n; col++)
+                hist[col] += chars[col] == '1' ? 1 : -hist[col];
+            ans = Math.max(ans, largestSquareArea(hist));
+        }
+        return ans;
+    }
+    
 }
