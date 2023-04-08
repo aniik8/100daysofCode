@@ -370,5 +370,41 @@ class Solutsion {
         }
         return ans;
     }
-    
+    static int largestSquareArea(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+        int[] left_arr = new int[heights.length];
+        int[] right_arr = new int[heights.length];
+        int[] area = new int[heights.length];
+        for (int i = 0; i < heights.length; i++) {
+            while (stack.size() > 0 && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+
+            if (stack.size() == 0) left_arr[i] = -1;
+            else left_arr[i] = stack.peek();
+            stack.push(i);
+        }
+        stack = new Stack<>();
+        int a = heights.length - 1;
+        for (int i = heights.length - 1; i >= 0; i--) {
+
+            while (stack.size() > 0 && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+
+
+            if (stack.size() == 0) right_arr[a--] = heights.length;
+            else right_arr[a--] = stack.peek();
+
+            stack.push(i);
+        }
+        int ans = 0;
+        for (int i = 0; i < heights.length; i++) {
+            int width = Math.abs(right_arr[i] - (left_arr[i]) - 1);
+            int height = heights[i];
+            int side = Math.min(height, width);
+            ans = Math.max(ans, side*side);
+        }
+        return ans;
+    }
 }
