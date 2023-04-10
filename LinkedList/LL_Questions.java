@@ -350,6 +350,22 @@ public void reverse(LinkedList.LL.Node l1)
     }
     return prev;
 }
+static int getMiddle(Node head)
+{
+    Node temp = head;
+    int size = 1, n =0;
+    while(temp.next != null){
+        size++;
+        temp = temp.next;
+    }
+    temp = head;
+    int mid = size/2;
+    while(n < mid){
+        temp = temp.next;
+        n++;
+    }
+    return temp.data;
+}
 
     public Node removeNodes(LinkedList.LL.Node head) {
         head=reverse(head);
