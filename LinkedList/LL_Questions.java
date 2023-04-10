@@ -307,6 +307,12 @@ public int middleofLL(LinkedList.LL list1){
         node.val = node.next.val;
         node.next = node.next.next;
     }
+    // Delete without head pointer
+    public void deleteNode(LinkedList.LL.Node del)
+    {
+        del.data=del.next.data;
+        del.next=del.next.next;
+    }
 // Leetcode 2487. -- time limit exceeded
 public void removeNodes(LinkedList.LL l1)
 {
