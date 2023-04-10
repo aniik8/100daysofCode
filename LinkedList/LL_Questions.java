@@ -372,6 +372,20 @@ public void reverse(LinkedList.LL.Node l1)
 
         return reverse(head);
     }
+    static int getNthFromLast(Node head, int n)
+    {   int size = 0;
+        Node temp = head;
+        while(temp != null){
+            size++;
+            temp = temp.next;
+        }
+        if(n > size ) return -1;
+        temp = head;
+        for (int i = 0; i < size - n; i++) {
+            temp = temp.next;
+        }
+        return temp.data;
+    }
 
     class Node{
         int data;
